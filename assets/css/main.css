@@ -6,6 +6,7 @@ iframe[seamless] {
 
 html {
   overflow-x: hidden;
+  overflow-y: hidden;
 }
 
 body {
