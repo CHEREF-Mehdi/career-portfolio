@@ -62,6 +62,8 @@ export const HeroArea: React.FC = () => {
                   className='btn btn-common'
                   data-placement='bottom'
                   data-toggle='popover'
+                  tabIndex={0}
+                  data-trigger="focus"
                   data-content={getAbout.quotes[quote.i]}
                   onClick={onGetQuoteClick}
                 >

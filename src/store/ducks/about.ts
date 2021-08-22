@@ -1,86 +1,14 @@
+import { aboutInitialState, IAbout } from './initialStates';
+
 enum actions {
   SET_ABOUT = 'portfolio/about/SET_ABOUT',
 }
 
-interface ISocialMedia {
-  cssClass: string;
-  link: string;
-  icon: string;
-}
-
-export interface IAbout {
-  imgUrl: string;
-  description: string;
-  name: string;
-  age: string;
-  songs: { artist: string; url: string }[];
-  book: string;
-  location: string;
-  jobTitle: string;
-  quotes: string[];
-  socialMedia: ISocialMedia[];
-}
-
-const initialState: IAbout = {
-  imgUrl: 'about-1.jpg',
-  description: `My name is Mehdi CHEREF, I am a full-stack developer and IA engineer. I am an accomplished coder and programmer and I enjoy using my skills to 
-      contribute to managing and sharing multidisciplinary ideas to bring projects to fruition. Graduated from the University of Burgundy, France in 2020 with a Master degree in Artificial intelligence. I have also attended the University of 
-      Science and Technology H-B, Algeria where I received a Bachelor's and a Master's degree, the BSc in Software Development and the MSc in Visual Computing. 
-      </br>
-      My favorite subject is programming, I spend my free time in reading or developing my tech-level by building my own software.
-      I enjoy eating the French Tacos <i>"Le gratiné"</i> and playing online video games. As part of my profession, I do my best to encourage my teammates 
-      to work hard and push them to success.`,
-  name: 'Mehdi CHEREF',
-  age: '29 Years',
-  book: 'Utopia XXI, Aymeric Caron',
-  songs: [
-    {
-      artist: 'Cheb Khaled',
-      url: 'https://www.youtube.com/watch?v=tTcnIYYeZI8',
-    },
-    {
-      artist: 'Lynyrd Skynyrd',
-      url: 'https://www.youtube.com/watch?v=RrmWFjnAP2Ec',
-    },
-    {
-      artist: "Rag'n'Bone Man",
-      url: 'https://www.youtube.com/watch?v=L3wKzyIN1yk',
-    },
-  ],
-  location: 'Toulouse, France',
-  jobTitle: 'Computer Science Engineer',
-  quotes: [
-    '“Good management is the art of making problems so interesting and their solutions so constructive that everyone wants to get to work and deal with them.”',
-    '“Believe passionately in what you do, and never knowingly compromise your standards and values. Act like a true professional, aiming for true excellence, and the money will follow.”',
-    '“Failure is simply the opportunity to begin again, this time more intelligently.”',
-    '“As you navigate through the rest of your life, be open to collaboration. Other people and other people’s ideas are often better than your own.”',
-  ],
-  socialMedia: [
-    {
-      cssClass: 'linkedin',
-      link: 'https://www.linkedin.com/in/mehdi-cheref/',
-      icon: 'icon-social-linkedin',
-    },
-    {
-      cssClass: 'github',
-      link: 'https://github.com/CHEREF-Mehdi/',
-      icon: 'icon-social-github',
-    },
-    {
-      cssClass: 'facebook',
-      link: 'https://www.facebook.com/ooliverquetzal',
-      icon: 'icon-social-facebook',
-    },
-    {
-      cssClass: 'google',
-      link: 'https://www.youtube.com/channel/UCGCwLEG6HikFzHHfDGfrEbA?view_as=subscriber',
-      icon: 'icon-social-youtube',
-    },
-  ],
-};
-
 //reducer
-const reducer = (state: IAbout = initialState, action: Iaction): IAbout => {
+const reducer = (
+  state: IAbout = aboutInitialState,
+  action: Iaction
+): IAbout => {
   switch (action.type) {
     case actions.SET_ABOUT:
       return { ...action.payload };

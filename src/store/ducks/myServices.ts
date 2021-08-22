@@ -1,15 +1,15 @@
-import { contactInitialState, IContact } from './initialStates';
+import { IService, ServicesInitialState } from './initialStates';
 
 enum actions {
-  SET_CONTACT = 'portfolio/about/SET_CONTACT',
+  SET_SERVICES = 'portfolio/about/SET_SERVICES',
 }
 
 const reducer = (
-  state: IContact = contactInitialState,
+  state: IService = ServicesInitialState,
   action: Iaction
-): IContact => {
+): IService => {
   switch (action.type) {
-    case actions.SET_CONTACT:
+    case actions.SET_SERVICES:
       return { ...action.payload };
     default:
       return state;
@@ -28,8 +28,8 @@ const actionMaker =
     };
   };
 
-export const setContactAction = actionMaker<actions.SET_CONTACT, IContact>(
-  actions.SET_CONTACT
+export const setContactAction = actionMaker<actions.SET_SERVICES, IService>(
+  actions.SET_SERVICES
 );
 
 const actionsObj = {
