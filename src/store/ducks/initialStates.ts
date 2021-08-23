@@ -37,6 +37,21 @@ export interface IService {
   items: IServiceItem[];
 }
 
+export interface IPortfolioItem {
+  img: string;
+  link?: string;
+  filter: string;
+}
+export interface IRecommendationItem {
+  src: string;
+  refProfile: string;
+}
+
+export interface IPortfolio {
+  items: IPortfolioItem[];
+  recommendations: IRecommendationItem[];
+}
+
 // =================== Initial States ====================
 
 export const aboutInitialState: IAbout = {
@@ -467,4 +482,62 @@ export const organizationInitialState: NS_ReduxNS.IResumeList = {
       ],
     },
   ],
+};
+
+export const portfolioInitialState: IPortfolio = {
+  items: [
+    {
+      img: '/assets/img/gallery/img-1.jpg',
+      link: 'https://www.google.fr/maps/place/Valletta,+Malta/@35.8989085,14.5145528,3a,75y,90t/data=!3m8!1e2!3m6!1sAF1QipOgaci7Qxa9EX2zj0vrgoh9bjSvzMx5z8kXUvw-!2e10!3e12!6shttps:%2F%2Flh5.googleusercontent.com%2Fp%2FAF1QipOgaci7Qxa9EX2zj0vrgoh9bjSvzMx5z8kXUvw-%3Dw129-h86-k-no!7i2997!8i1998!4m5!3m4!1s0x130e45281d8647c5:0x745ad38ee242c917!8m2!3d35.8989085!4d14.5145528',
+      filter: 'development',
+    },
+    {
+      img: '/assets/img/gallery/img-2.jpg',
+      link: 'https://microclub-usthb.com/agc/',
+      filter: 'print',
+    },
+    {
+      img: '/assets/img/gallery/img-3.jpg',
+      link: 'https://www.google.fr/maps/place/Timimoun,+Algeria/@29.2609217,0.2385387,3a,75y,90t/data=!3m8!1e2!3m6!1sAF1QipMJCU-fM6iZ8kVFsjnIzGgHutG4H_XvfzVvoVut!2e10!3e12!6shttps:%2F%2Flh5.googleusercontent.com%2Fp%2FAF1QipMJCU-fM6iZ8kVFsjnIzGgHutG4H_XvfzVvoVut%3Dw114-h86-k-no!7i720!8i540!4m5!3m4!1s0x127572225e84a77f:0x29b4250c99b3463e!8m2!3d29.2616911!4d0.2415964',
+      filter: 'development',
+    },
+    {
+      img: '/assets/img/gallery/img-4.jpg',
+      link: 'https://www.facebook.com/AlgerianGameDevelopers/',
+      filter: 'design',
+    },
+    {
+      img: '/assets/img/gallery/img-5.jpg',
+      link: 'https://www.scorf.io/',
+      filter: 'design',
+    },
+    {
+      img: '/assets/img/gallery/img-6.jpg',
+      link: 'https://www.google.com/maps/place/Sousse,+Tunisia/@35.8284534,10.5480137,12z/data=!3m1!4b1!4m13!1m7!3m6!1s0x125595448316a4e1:0x3a84333aaa019bef!2sTunisia!3b1!8m2!3d33.886917!4d9.537499!3m4!1s0x130275759ac9d10d:0x698e3915682cef7d!8m2!3d35.8267213!4d10.6347656',
+      filter: 'development',
+    },
+  ],
+  recommendations :[
+    {
+      src: "/assets/img/rec/Pierre-Alexandre.jpg",
+      refProfile:
+        "https://www.linkedin.com/in/pierre-alexandre-beucher-0338951/",
+    },
+    {
+      src: "/assets/img/rec/Youcef_Zahariou.jpg",
+      refProfile: "https://www.linkedin.com/in/youcef-zahariou/",
+    },
+    {
+      src: "/assets/img/rec/Chafika_Benzaid.jpg",
+      refProfile: "https://www.linkedin.com/in/chafika-benzaid-21957261/",
+    },
+    {
+      src: "/assets/img/rec/Sliman_Larabi.jpg",
+      refProfile: "http://perso.usthb.dz/~slarabi/accueil.html",
+    },
+    {
+      src: "/assets/img/rec/DAHMANI-Djamila.jpg",
+      refProfile: "mailto: djamiladahmani73@gmail.com",
+    }
+  ]
 };

@@ -32,7 +32,7 @@ const initialState: IResume = {
 
 const reducer = (
   state: IResume = initialState,
-  action: IResumeaction
+  action: IResumeAction
 ): IResume => {
   switch (action.type) {
     case actions.SET_PRO_EXPERIENCES:
@@ -101,10 +101,10 @@ const actionsObj = {
   setSelectedScientificPapersAction,
 };
 
-export type IResumeaction = NS_ReduxNS.IactionUnion<typeof actionsObj>;
+export type IResumeAction = NS_ReduxNS.IactionUnion<typeof actionsObj>;
 
 export const setSelectedScientificPapers = (selectedItem: number) => {
-  return (Dispatch: React.Dispatch<IResumeaction>) => {
+  return (Dispatch: React.Dispatch<IResumeAction>) => {
     Dispatch(setSelectedScientificPapersAction(selectedItem));
   };
 };

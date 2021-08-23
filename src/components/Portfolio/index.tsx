@@ -1,6 +1,13 @@
 import * as React from 'react';
+import { useSelector } from 'react-redux';
+import { IAppState } from '../../store/ducks/rootReducer';
+import { PortfolioItem } from './PortfolioItem';
 
 export const Portfolio: React.FC = () => {
+  const { items } = useSelector(
+    (state: IAppState) => state.portfolio
+  );
+
   return (
     // <!-- Portfolio Recent Projects -->
     <section id='portfolios' className='section-padding'>
@@ -11,13 +18,19 @@ export const Portfolio: React.FC = () => {
         <div className='row'>
           <div className='col-md-12'>
             <div className='controls text-center'>
-              <button  className='filter active btn btn-common' data-filter='all'>
+              <button
+                className='filter active btn btn-common'
+                data-filter='all'
+              >
                 All
               </button>
               <button className='filter btn btn-common' data-filter='.design'>
                 Work
               </button>
-              <button className='filter btn btn-common' data-filter='.development'>
+              <button
+                className='filter btn btn-common'
+                data-filter='.development'
+              >
                 Travels
               </button>
               <button className='filter btn btn-common' data-filter='.print'>
@@ -25,16 +38,23 @@ export const Portfolio: React.FC = () => {
               </button>
             </div>
           </div>
-          <div
-            id='portfolio'
-            className='row wow fadeInDown'
-            data-wow-delay='0.4s'
-          ></div>
+          <div className='row'>
+            {items.map(({ img, filter, link }, key) => {
+              return (
+                <PortfolioItem
+                  key={key}
+                  img={img}
+                  link={link}
+                  filter={filter}
+                />
+              );
+            })}
+          </div>
         </div>
       </div>
       <br />
       <br />
-      {/* //   <!-- Recommendation Section start --> */}
+      {/* //   <!-- Recommendation Section start --> 
       <div id='Recommendations' className='container'>
         <h2 className='section-title wow flipInX' data-wow-delay='0.4s'>
           Recommendations
@@ -47,8 +67,32 @@ export const Portfolio: React.FC = () => {
           data-interval='0'
         >
           <div className='carousel-inner' id='SlideContainer'>
-            <ol id='ol-carou-indic' className='carousel-indicators'></ol>
-            <div id='slideContainer'></div>
+            <ol id='ol-carou-indic' className='carousel-indicators'>
+              {recommendations.map((item, key) => {
+                return (
+                  <li
+                    key={key}
+                    data-target='#carouselExampleControls'
+                    data-slide-to={key}
+                    className={key === 0 ? 'active' : ''}
+                  ></li>
+                );
+              })}
+            </ol>
+            <div id='slideContainer'>
+              {recommendations.map(({ src, refProfile }, key) => {
+                return (
+                  <div
+                    key={key}
+                    className={
+                      'carousel-item item' + (key === 0 ? ' active' : '')
+                    }
+                  >
+                    <RecommendationItem src={src} refProfile={refProfile} />
+                  </div>
+                );
+              })}
+            </div>
           </div>
           <a
             className='carousel-control-prev'

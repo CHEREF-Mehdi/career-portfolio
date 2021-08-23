@@ -13,7 +13,11 @@ export const Footer: React.FC = () => {
                 data-wow-delay='0.3s'
               >
                 <ul className='social-icon socialMediaDiv'></ul>
-                <p id='Copyright'></p>
+                <p id='Copyright'>
+                  {'Copyright © ' +
+                    new Date().getFullYear() +
+                    ' UIdeck All Right Reserved'}
+                </p>
               </div>
             </div>
           </div>

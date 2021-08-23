@@ -6,7 +6,7 @@ enum actions {
 
 const reducer = (
   state: IService = ServicesInitialState,
-  action: Iaction
+  action: IServiceAction
 ): IService => {
   switch (action.type) {
     case actions.SET_SERVICES:
@@ -36,4 +36,4 @@ const actionsObj = {
   setContactAction,
 };
 
-export type Iaction = NS_ReduxNS.IactionUnion<typeof actionsObj>;
+export type IServiceAction = NS_ReduxNS.IactionUnion<typeof actionsObj>;

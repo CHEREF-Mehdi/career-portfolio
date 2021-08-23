@@ -8,7 +8,7 @@ export const ResumeList: React.FC<NS_ReduxNS.IResumeList> = ({
   mapLinks,
 }) => {
   return (
-    <div className='education wow fadeInRight' data-wow-delay='0.6s'>
+    <div className='education wow fadeInRight' data-wow-delay='0.3s'>
       <ul className='timeline'>
         <li>
           <i className={icon}></i>

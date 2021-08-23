@@ -6,7 +6,7 @@ enum actions {
 
 const reducer = (
   state: IContact = contactInitialState,
-  action: Iaction
+  action: IContactaction
 ): IContact => {
   switch (action.type) {
     case actions.SET_CONTACT:
@@ -36,4 +36,4 @@ const actionsObj = {
   setContactAction,
 };
 
-export type Iaction = NS_ReduxNS.IactionUnion<typeof actionsObj>;
+export type IContactaction = NS_ReduxNS.IactionUnion<typeof actionsObj>;

@@ -7,7 +7,7 @@ enum actions {
 //reducer
 const reducer = (
   state: IAbout = aboutInitialState,
-  action: Iaction
+  action: IAboutAction
 ): IAbout => {
   switch (action.type) {
     case actions.SET_ABOUT:
@@ -37,8 +37,8 @@ const actionsObj = {
   setAboutAction,
 };
 
-export type Iaction = NS_ReduxNS.IactionUnion<typeof actionsObj>;
-export type IAPIaction = (Dispatch: React.Dispatch<Iaction>) => any;
+export type IAboutAction = NS_ReduxNS.IactionUnion<typeof actionsObj>;
+export type IAboutAPIAction = (Dispatch: React.Dispatch<IAboutAction>) => any;
 
 // export const union = (
 //   workspaceId: string,
