@@ -12,23 +12,6 @@ export const Contact: React.FC = () => {
             className='row contact-form-area wow fadeInUp'
             data-wow-delay='0.4s'
           >
-            <div className='col-md-6 col-lg-6 col-sm-12'>
-              <div
-                style={{
-                  flex: 1,
-                  height: '250px',
-                }}
-                id='canvasParent'
-              >
-                <iframe
-                  title='Cube Game'
-                  src={process.env.PUBLIC_URL + '/assets/cubeGame/index.html'}
-                  seamless
-                  height='100%'
-                  width='100%'
-                ></iframe>
-              </div>
-            </div>
             <div
               className='col-md-6 col-lg-6 col-sm-12'
               style={{ display: 'flex' }}
@@ -50,16 +33,13 @@ export const Contact: React.FC = () => {
                       </div>
                       <p>{contact.adress}</p>
                     </div>
-                    <div className='single-contact' style={{ textOverflow: 'ellipsis' }}>
+                    <div className='single-contact'>
                       <div className='contact-icon'>
                         <i className='fa fa-envelope'></i>
                       </div>
 
-                      <span
-                        className='pro-detail'
-                        
-                      >
-                        <a href={`mailto:${contact.email1}`} >
+                      <span className='pro-detail'>
+                        <a href={`mailto:${contact.email1}`}>
                           {contact.email1}
                         </a>
                       </span>
@@ -78,6 +58,23 @@ export const Contact: React.FC = () => {
                     </div>
                   </div>
                 </div>
+              </div>
+            </div>
+            <div className='col-md-6 col-lg-6 col-sm-12'>
+              <div
+                style={{
+                  flex: 1,
+                  height: '250px',
+                }}
+                id='canvasParent'
+              >
+                <iframe
+                  title='Cube Game'
+                  src={process.env.PUBLIC_URL + '/assets/cubeGame/index.html'}
+                  seamless
+                  height='100%'
+                  width='100%'
+                ></iframe>
               </div>
             </div>
           </div>

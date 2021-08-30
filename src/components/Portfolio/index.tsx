@@ -2,11 +2,11 @@ import * as React from 'react';
 import { useSelector } from 'react-redux';
 import { IAppState } from '../../store/ducks/rootReducer';
 import { PortfolioItem } from './PortfolioItem';
+import { TestimonialItem } from './TestimonialItem';
 
 export const Portfolio: React.FC = () => {
-  const { items } = useSelector(
-    (state: IAppState) => state.portfolio
-  );
+  const { items } = useSelector((state: IAppState) => state.portfolio);
+  const testimonials = useSelector((state: IAppState) => state.testimonials);
 
   return (
     // <!-- Portfolio Recent Projects -->
@@ -38,7 +38,7 @@ export const Portfolio: React.FC = () => {
               </button>
             </div>
           </div>
-          <div className='row'>
+          <div id='portfolio' className='row wow fadeInDown'>
             {items.map(({ img, filter, link }, key) => {
               return (
                 <PortfolioItem
@@ -54,73 +54,39 @@ export const Portfolio: React.FC = () => {
       </div>
       <br />
       <br />
-      {/* //   <!-- Recommendation Section start --> 
+      {/* //   <!-- Recommendation Section start --> */}
       <div id='Recommendations' className='container'>
         <h2 className='section-title wow flipInX' data-wow-delay='0.4s'>
-          Recommendations
+          Testimonials
         </h2>
-        <div
-          data-wow-delay='0.4s'
-          id='carouselExampleControls'
-          className='carousel slide wow fadeInDown'
-          data-ride='carousel'
-          data-interval='0'
-        >
-          <div className='carousel-inner' id='SlideContainer'>
-            <ol id='ol-carou-indic' className='carousel-indicators'>
-              {recommendations.map((item, key) => {
-                return (
-                  <li
-                    key={key}
-                    data-target='#carouselExampleControls'
-                    data-slide-to={key}
-                    className={key === 0 ? 'active' : ''}
-                  ></li>
-                );
-              })}
-            </ol>
-            <div id='slideContainer'>
-              {recommendations.map(({ src, refProfile }, key) => {
-                return (
-                  <div
-                    key={key}
-                    className={
-                      'carousel-item item' + (key === 0 ? ' active' : '')
-                    }
-                  >
-                    <RecommendationItem src={src} refProfile={refProfile} />
-                  </div>
-                );
-              })}
+        <div className='container'>
+          <div
+            className='row'
+            style={{
+              display: 'flex',
+              justifyContent: 'center',
+              justifyItems: 'center',
+            }}
+          >
+            <div className='col-md-offset-2 col-md-8'>
+              <div id='testimonial-slider' className='owl-carousel'>
+                {testimonials.items.map(
+                  ({ img, name, testimonial, title, url }, key) => (
+                    <TestimonialItem
+                      key={key}
+                      name={name}
+                      title={title}
+                      testimonial={testimonial}
+                      url={url}
+                      img={img}
+                    />
+                  )
+                )}
+              </div>
             </div>
           </div>
-          <a
-            className='carousel-control-prev'
-            href='#carouselExampleControls'
-            role='button'
-            data-slide='prev'
-          >
-            <span
-              className='carousel-control-prev-icon'
-              aria-hidden='true'
-            ></span>
-            <span className='sr-only'>Previous</span>
-          </a>
-          <a
-            className='carousel-control-next'
-            href='#carouselExampleControls'
-            role='button'
-            data-slide='next'
-          >
-            <span
-              className='carousel-control-next-icon'
-              aria-hidden='true'
-            ></span>
-            <span className='sr-only'>Next</span>
-          </a>
         </div>
       </div>
-      {/* // <!-- Recommendation Section Ends --> */}
     </section>
   );
 };

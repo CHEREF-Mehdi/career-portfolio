@@ -44,7 +44,7 @@ export const NavBar: React.FC = () => {
             </li>
             <li className='nav-item'>
               <a className='nav-link' href='#Recommendations'>
-                Recommendations
+                Testimonials
               </a>
             </li>
             <li className='nav-item'>
@@ -74,7 +74,7 @@ export const NavBar: React.FC = () => {
           <a href='#portfolio'>About my journey</a>
         </li>
         <li>
-          <a href='#Recommendations'>Recommendations</a>
+          <a href='#Recommendations'>Testimonials</a>
         </li>
         <li>
           <a href='#contact'>Contact</a>

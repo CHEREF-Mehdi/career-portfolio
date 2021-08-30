@@ -4,6 +4,7 @@ import contactReducer from './contact';
 import servicesReducer from './myServices';
 import resumeReducer from './resume';
 import portfolioReducer from './portfolio';
+import testemonialReducer from './testimonial';
 
 const rootReducer = combineReducers({
   about: aboutReducer,
@@ -11,6 +12,7 @@ const rootReducer = combineReducers({
   services: servicesReducer,
   resume: resumeReducer,
   portfolio: portfolioReducer,
+  testimonials: testemonialReducer,
 });
 
 export type IAppState = ReturnType<typeof rootReducer>;

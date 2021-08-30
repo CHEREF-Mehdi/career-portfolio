@@ -52,6 +52,18 @@ export interface IPortfolio {
   recommendations: IRecommendationItem[];
 }
 
+export interface ITestimonialprofile {
+  name: string;
+  title: string;
+  img: string;
+  url: string;
+  testimonial: string;
+}
+
+export interface ITestemonial {
+  items: ITestimonialprofile[];
+}
+
 // =================== Initial States ====================
 
 export const aboutInitialState: IAbout = {
@@ -517,27 +529,62 @@ export const portfolioInitialState: IPortfolio = {
       filter: 'development',
     },
   ],
-  recommendations :[
+  recommendations: [
     {
-      src: "/assets/img/rec/Pierre-Alexandre.jpg",
+      src: '/assets/img/rec/Pierre-Alexandre.jpg',
       refProfile:
-        "https://www.linkedin.com/in/pierre-alexandre-beucher-0338951/",
+        'https://www.linkedin.com/in/pierre-alexandre-beucher-0338951/',
     },
     {
-      src: "/assets/img/rec/Youcef_Zahariou.jpg",
-      refProfile: "https://www.linkedin.com/in/youcef-zahariou/",
+      src: '/assets/img/rec/Youcef_Zahariou.jpg',
+      refProfile: 'https://www.linkedin.com/in/youcef-zahariou/',
     },
     {
-      src: "/assets/img/rec/Chafika_Benzaid.jpg",
-      refProfile: "https://www.linkedin.com/in/chafika-benzaid-21957261/",
+      src: '/assets/img/rec/Chafika_Benzaid.jpg',
+      refProfile: 'https://www.linkedin.com/in/chafika-benzaid-21957261/',
     },
     {
-      src: "/assets/img/rec/Sliman_Larabi.jpg",
-      refProfile: "http://perso.usthb.dz/~slarabi/accueil.html",
+      src: '/assets/img/rec/Sliman_Larabi.jpg',
+      refProfile: 'http://perso.usthb.dz/~slarabi/accueil.html',
     },
     {
-      src: "/assets/img/rec/DAHMANI-Djamila.jpg",
-      refProfile: "mailto: djamiladahmani73@gmail.com",
-    }
-  ]
+      src: '/assets/img/rec/DAHMANI-Djamila.jpg',
+      refProfile: 'mailto: djamiladahmani73@gmail.com',
+    },
+  ],
+};
+
+export const testimonialInitialState: ITestemonial = {
+  items: [
+    {
+      name: 'Pierre-Alexandre Beucher',
+      title: 'Co-founder at Scorf',
+      img: '/assets/img/rec/PA.jfif',
+      url: 'https://www.linkedin.com/in/pierre-alexandre-beucher-0338951/',
+      testimonial: `Nos 6 mois de collaborations furent excellent. Très
+                    professionnel, rigoureux et méthodique, toujours prêt à
+                    aider, à faire avancer les projets en proposant des
+                    solutions. Mehdi a su mener à bien l'ensemble des
+                    missions qui lui ont été confiées avec la plus grande
+                    autonomie dans un contexte sanitaire parfois compliqué.
+                    Vivement recommandé`,
+    },
+    {
+      name: 'Youcef ZAHARIOU',
+      title: 'Software Engineer',
+      img: '/assets/img/rec/YZ.jfif',
+      url: 'https://www.linkedin.com/in/youcef-zahariou/',
+      testimonial: `Mehdi était une personne brillante avec qui j'ai
+                    travaillé. Il est très cartésien dans tout ce qu'il fait
+                    et on peut compter sur lui pour faire le travail
+                    efficacement. Grâce à ses compétences interpersonnelles
+                    et techniques dans le développement Frontend en
+                    particulier React. Il avait une vision pour voir les
+                    avantages et la passion de transformer cela en résultats
+                    mesurables pour LG Algérie. Le succès obtenu dans son
+                    travail exigeait des connaissances et un dévouement
+                    approfondis. Il est un atout pour toute entreprise, je
+                    recommande vivement de travailler avec lui`,
+    },
+  ],
 };
