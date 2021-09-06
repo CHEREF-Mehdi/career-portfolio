@@ -1,7 +1,7 @@
 import { contactInitialState, IContact } from './initialStates';
 
 enum actions {
-  SET_CONTACT = 'portfolio/about/SET_CONTACT',
+  SET_CONTACT = 'portfolio/contact/SET_CONTACT',
 }
 
 const reducer = (

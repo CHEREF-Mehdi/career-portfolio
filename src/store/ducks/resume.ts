@@ -7,11 +7,12 @@ import {
 } from './initialStates';
 
 enum actions {
-  SET_PRO_EXPERIENCES = 'portfolio/about/SET_PRO_EXPERIENCES',
-  SET_EDUCATION = 'portfolio/about/SET_EDUCATION',
-  SET_PERSONAL_PROJECTS = 'portfolio/about/SET_PERSONAL_PROJECTS',
-  SET_SCIENTIFIC_PAPERS = 'portfolio/about/SET_SCIENTIFIC_PAPERS',
-  SET_SELECTED_SCIENTIFIC_PAPERS = 'portfolio/about/SET_SELECTED_SCIENTIFIC_PAPERS',
+  SET_PRO_EXPERIENCES = 'portfolio/resume/SET_PRO_EXPERIENCES',
+  SET_EDUCATION = 'portfolio/resume/SET_EDUCATION',
+  SET_PERSONAL_PROJECTS = 'portfolio/resume/SET_PERSONAL_PROJECTS',
+  SET_SCIENTIFIC_PAPERS = 'portfolio/resume/SET_SCIENTIFIC_PAPERS',
+  SET_SELECTED_SCIENTIFIC_PAPERS = 'portfolio/resume/SET_SELECTED_SCIENTIFIC_PAPERS',
+  SET_ORGANIZATIONS = 'portfolio/resume/SET_ORGANIZATIONS',
 }
 
 interface IResume {
@@ -43,6 +44,8 @@ const reducer = (
       return { ...state, personalProject: { ...action.payload } };
     case actions.SET_SCIENTIFIC_PAPERS:
       return { ...state, scientificPapers: { ...action.payload } };
+    case actions.SET_ORGANIZATIONS:
+      return { ...state, organizations: { ...action.payload } };
     case actions.SET_SELECTED_SCIENTIFIC_PAPERS:
       return {
         ...state,
@@ -93,12 +96,18 @@ export const setSelectedScientificPapersAction = actionMaker<
   number
 >(actions.SET_SELECTED_SCIENTIFIC_PAPERS);
 
+export const setOrganizationsAction = actionMaker<
+  actions.SET_ORGANIZATIONS,
+  NS_ReduxNS.IResumeList
+>(actions.SET_ORGANIZATIONS);
+
 const actionsObj = {
   setProExperiencesAction,
   setEducationAction,
   setPersonalProjectsAction,
   setScientificPapersAction,
   setSelectedScientificPapersAction,
+  setOrganizationsAction,
 };
 
 export type IResumeAction = NS_ReduxNS.IactionUnion<typeof actionsObj>;

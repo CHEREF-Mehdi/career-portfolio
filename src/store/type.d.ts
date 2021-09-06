@@ -1,4 +1,4 @@
-namespace NS_ReduxNS {
+declare namespace NS_ReduxNS {
   interface IstringMap<T> {
     [key: string]: T;
   }
@@ -29,7 +29,7 @@ namespace NS_ReduxNS {
   }
 }
 
-namespace NS_UI {
+declare namespace NS_UI {
   interface IModalContent {
     title?: string;
     year?: string;

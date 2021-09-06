@@ -9,7 +9,7 @@ html {
 }
 
 body {
-  background: #fff;
+  background: #000;
   font-size: 14px;
   font-weight: 400;
   font-family: 'Source Sans Pro', sans-serif;
@@ -17,7 +17,7 @@ body {
   -moz-box-sizing: border-box;
   box-sizing: border-box;
   -webkit-font-smoothing: subpixel-antialiased;
-  color: #666;
+  color: #ddd;
   line-height: 25px;
   -webkit-backface-visibility: hidden;
   backface-visibility: hidden;
@@ -109,7 +109,7 @@ ol li {
 }
 
 .section-title {
-  color: #252525;
+  color: #ddd;
   font-size: 38px;
   text-align: center;
   letter-spacing: 1px;
@@ -203,8 +203,8 @@ button:focus {
 }
 
 .social-icon li a {
-  color: #000;
-  background: #fff;
+  color: #fff;
+  background: #000;
   width: 35px;
   height: 35px;
   line-height: 38px;
@@ -236,7 +236,8 @@ button:focus {
 }
 
 .social-icon li .github:hover {
-  background: #000;
+  background: #fff;
+  color: #000;
 }
 
 .social-icon li .linkedin:hover {
@@ -305,8 +306,8 @@ a.back-to-top:focus {
 }
 
 #about .img-thumb img {
-  border: 8px solid #fff;
-  box-shadow: 0px 0px 30px rgba(0, 0, 0, 0.2);
+  border: 8px solid #ddd;
+  box-shadow: 0px 0px 30px rgba(255, 255, 255, 0.527);
 }
 
 .profile-wrapper {
@@ -329,7 +330,7 @@ a.back-to-top:focus {
 
 .about-profile .pro-title {
   font-weight: 700;
-  color: #040404;
+  color: #ddd;
   position: relative;
   width: 120px;
   display: inline-block;
@@ -339,7 +340,7 @@ a.back-to-top:focus {
 .about-profile .pro-title:after {
   position: absolute;
   content: ':';
-  color: #040404;
+  color: #ddd;
   font-size: 14px;
   left: 77px;
 }
@@ -413,8 +414,9 @@ a.back-to-top:focus {
 }
 
 .timeline li .content-text {
-  background: #f2f2f2;
+  background: rgba(153, 153, 153, 0.5);
   padding: 20px;
+  border-radius: 5px ;
 }
 
 .timeline li .line-title {
@@ -429,7 +431,7 @@ a.back-to-top:focus {
 }
 
 .timeline li .line-text {
-  color: #888;
+  color: #ddd;
   line-height: 18px;
 }
 
@@ -481,18 +483,17 @@ a.back-to-top:focus {
 }
 
 .top-nav-collapse {
-  background: #fff;
+  background: #000 !important;
   z-index: 999999;
   top: 0px !important;
   min-height: 58px;
-  box-shadow: 0px 3px 6px 3px rgba(0, 0, 0, 0.06);
-  -webkit-animation-duration: 1s;
-  animation-duration: 1s;
+  box-shadow: 0px 3px 6px 3px rgba(75, 75, 75, 0.5);
+  -webkit-animation-duration: 0.5s;
+  animation-duration: 0.5s;
   -webkit-animation-fill-mode: both;
   animation-fill-mode: both;
   -webkit-animation-name: fadeInDown;
   animation-name: fadeInDown;
-  background: #fff !important;
 }
 
 .top-nav-collapse .navbar-brand {
@@ -504,7 +505,7 @@ a.back-to-top:focus {
 }
 
 .top-nav-collapse .navbar-nav .nav-link {
-  color: #333 !important;
+  color: #ddd !important ;
   margin-top: 0px !important;
   margin-bottom: 0px !important;
 }
@@ -519,7 +520,7 @@ a.back-to-top:focus {
 }
 
 .indigo {
-  background: #fff;
+  background: #000;
 }
 
 .menu-bg {
@@ -540,7 +541,7 @@ a.back-to-top:focus {
 }
 
 .navbar-expand-lg .navbar-nav .nav-link {
-  color: #333;
+  color: #ddd;
   font-weight: 700;
   padding: 0 17px;
   margin-top: 15px;
@@ -717,7 +718,7 @@ a.back-to-top:focus {
   .slicknav_nav .active {
     color: #00b4d9;
     outline: none;
-    background: #f8f9fa;
+    background: #000 !important;
   }
 }
 
@@ -795,7 +796,7 @@ a.back-to-top:focus {
   Portfolio Section
    ========================================================================== */
 #portfolios {
-  background: #f2f2f2;
+  background: #151515;
 }
 
 #portfolios .mix {
@@ -1221,113 +1222,122 @@ a:not([href]):not([tabindex]):hover {
 /* ==========================================================================
   testimonials
    ========================================================================== */
- 
-.testimonial{ margin: 0 10px; }
-.testimonial .testimonial-content{
-    margin: 20px 0 50px 0;
-    position: relative;
+
+.testimonial {
+  margin: 0 10px;
 }
-.testimonial .testimonial-content:after{
-    content: "";
-    width: 20px;
-    height: 20px;
-    border-top: 20px solid #00b4d9;
-    border-left: 20px solid transparent;
-    border-right: 20px solid transparent;
-    margin: 0 auto;
-    position: absolute;
-    bottom: -20px;
-    left: 0;
-    right: 0;
+.testimonial .testimonial-content {
+  margin: 20px 0 50px 0;
+  position: relative;
 }
-.testimonial .description{
-    padding: 25px 35px;
-    margin: 0;
-    background: #00b4d9;
-    border-radius: 15px;
-    font-size: 20px;
-    color: #fff;
-    position: relative;
+.testimonial .testimonial-content:after {
+  content: '';
+  width: 20px;
+  height: 20px;
+  border-top: 20px solid #00b4d9;
+  border-left: 20px solid transparent;
+  border-right: 20px solid transparent;
+  margin: 0 auto;
+  position: absolute;
+  bottom: -20px;
+  left: 0;
+  right: 0;
+}
+.testimonial .description {
+  padding: 25px 35px;
+  margin: 0;
+  background: #00b4d9;
+  border-radius: 15px;
+  font-size: 20px;
+  color: #fff;
+  position: relative;
 }
 .testimonial .description:before,
-.testimonial .description:after{
-    font-family: "Font Awesome 5 Free"; font-weight: 900;
-    width: 35px;
-    height: 35px;
-    line-height: 35px;
-    border-radius: 8px;
-    text-align: center;
-    background: #00b4d9;
-    position: absolute;
+.testimonial .description:after {
+  font-family: 'Font Awesome 5 Free';
+  font-weight: 900;
+  width: 35px;
+  height: 35px;
+  line-height: 35px;
+  border-radius: 8px;
+  text-align: center;
+  background: #00b4d9;
+  position: absolute;
 }
-.testimonial .description:before{
-    content: "\f10d";
-    top: -18px;
-    left: 25px;
+.testimonial .description:before {
+  content: '\f10d';
+  top: -18px;
+  left: 25px;
 }
-.testimonial .description:after{
-    content: "\f10e";
-    bottom: -18px;
-    right: 25px;
+.testimonial .description:after {
+  content: '\f10e';
+  bottom: -18px;
+  right: 25px;
 }
-.testimonial .testimonial-profile{
-    display: table;
-    padding: 15px;
-    border: 1px solid #00b4d9;
-    border-radius: 20px;
-    margin: 0 auto;
-    position: relative;
-    height: 130px;
+.testimonial .testimonial-profile {
+  display: table;
+  padding: 15px;
+  border: 1px solid #00b4d9;
+  border-radius: 20px;
+  margin: 0 auto;
+  position: relative;
+  height: 130px;
 }
-.testimonial .pic{
-    width: 110px;
-    height: 110px;
-    border-radius: 50%;
-    border: 1px solid #00b4d9;
-    float: left;
-    overflow: hidden;
+.testimonial .pic {
+  width: 110px;
+  height: 110px;
+  border-radius: 50%;
+  border: 1px solid #00b4d9;
+  float: left;
+  overflow: hidden;
 }
-.testimonial .title{
-    display: inline-block;
-    margin: 0 0 0 15px;
-    font-size: 19px;
-    font-weight: bold;
-    color: #00b4d9;
-    position: relative;
+.testimonial .title {
+  display: inline-block;
+  margin: 0 0 0 15px;
+  font-size: 19px;
+  font-weight: bold;
+  color: #00b4d9;
+  position: relative;
 }
-.testimonial .title:before{
-    content: "";
-    width: 1px;
-    height: 110px;
-    background: #00b4d9;
-    position: absolute;
-    left: -10px;
+.testimonial .title:before {
+  content: '';
+  width: 1px;
+  height: 110px;
+  background: #00b4d9;
+  position: absolute;
+  left: -10px;
 }
-.testimonial .post{
-    display: block;
-    font-size: 14px;
-    font-weight: normal;
-    color: #888;
-    margin-top: 10px;
+.testimonial .post {
+  display: block;
+  font-size: 14px;
+  font-weight: normal;
+  color: #888;
+  margin-top: 10px;
 }
-.owl-theme .owl-controls{
-    margin-top: 30px;
+.owl-theme .owl-controls {
+  margin-top: 30px;
 }
-.owl-theme .owl-controls .owl-page span{
-    background: transparent;
-    border: 1px solid #00b4d9;
-    opacity: 1;
+.owl-theme .owl-controls .owl-page span {
+  background: transparent;
+  border: 1px solid #00b4d9;
+  opacity: 1;
 }
-.owl-theme .owl-controls .owl-page.active span{
-    background: #00b4d9;
-    border: 1px solid #00b4d9;
+.owl-theme .owl-controls .owl-page.active span {
+  background: #00b4d9;
+  border: 1px solid #00b4d9;
 }
-@media only screen and (max-width: 479px){
-    .testimonial .description{
-        padding: 20px;
-        font-size: 16px;
-    }
-    .testimonial .testimonial-profile{ padding: 10px; }
-    .testimonial .title{ font-size: 16px; }
-    .testimonial .post{ font-size: 13px; }
+@media only screen and (max-width: 479px) {
+  .testimonial .description {
+    padding: 20px;
+    font-size: 16px;
+  }
+  .testimonial .testimonial-profile {
+    padding: 10px;
+  }
+  .testimonial .title {
+    font-size: 16px;
+  }
+  .testimonial .post {
+    font-size: 13px;
+  }
 }

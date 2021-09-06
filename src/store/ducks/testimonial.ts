@@ -38,4 +38,3 @@ const actionsObj = {
 };
 
 export type ITestimonialAction = NS_ReduxNS.IactionUnion<typeof actionsObj>;
-export type ITestimonialAPIAction = (Dispatch: React.Dispatch<ITestimonialAction>) => any;

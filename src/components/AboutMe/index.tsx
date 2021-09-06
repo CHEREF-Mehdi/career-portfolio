@@ -22,7 +22,7 @@ export const AboutMe: React.FC = () => {
               <img
                 className='img-fluid'
                 src={
-                  process.env.PUBLIC_URL + '/assets/img/about/' + about.imgUrl
+                  process.env.PUBLIC_URL + about.imgUrl
                 }
                 alt='CHEREF Mehdi'
               />

@@ -62,13 +62,13 @@ export const NavBar: React.FC = () => {
           <a href='#hero-area'>Home</a>
         </li>
         <li>
-          <a href='#about'>about</a>
+          <a href='#about'>About</a>
         </li>
         <li>
           <a href='#services'>Services</a>
         </li>
         <li>
-          <a href='#resume'>resume</a>
+          <a href='#resume'>Resume</a>
         </li>
         <li>
           <a href='#portfolio'>About my journey</a>

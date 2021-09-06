@@ -1,11 +1,11 @@
-import { IService, ServicesInitialState } from './initialStates';
+import { IService, servicesInitialState } from './initialStates';
 
 enum actions {
-  SET_SERVICES = 'portfolio/about/SET_SERVICES',
+  SET_SERVICES = 'portfolio/services/SET_SERVICES',
 }
 
 const reducer = (
-  state: IService = ServicesInitialState,
+  state: IService = servicesInitialState,
   action: IServiceAction
 ): IService => {
   switch (action.type) {
@@ -28,12 +28,12 @@ const actionMaker =
     };
   };
 
-export const setContactAction = actionMaker<actions.SET_SERVICES, IService>(
+export const setServiceAction = actionMaker<actions.SET_SERVICES, IService>(
   actions.SET_SERVICES
 );
 
 const actionsObj = {
-  setContactAction,
+  setServiceAction,
 };
 
 export type IServiceAction = NS_ReduxNS.IactionUnion<typeof actionsObj>;

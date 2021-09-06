@@ -59,33 +59,35 @@ export const Portfolio: React.FC = () => {
         <h2 className='section-title wow flipInX' data-wow-delay='0.4s'>
           Testimonials
         </h2>
-        <div className='container'>
-          <div
-            className='row'
-            style={{
-              display: 'flex',
-              justifyContent: 'center',
-              justifyItems: 'center',
-            }}
-          >
-            <div className='col-md-offset-2 col-md-8'>
-              <div id='testimonial-slider' className='owl-carousel'>
-                {testimonials.items.map(
-                  ({ img, name, testimonial, title, url }, key) => (
-                    <TestimonialItem
-                      key={key}
-                      name={name}
-                      title={title}
-                      testimonial={testimonial}
-                      url={url}
-                      img={img}
-                    />
-                  )
-                )}
+        {testimonials.items.length!==0 && (
+          <div className='container'>
+            <div
+              className='row'
+              style={{
+                display: 'flex',
+                justifyContent: 'center',
+                justifyItems: 'center',
+              }}
+            >
+              <div className='col-md-offset-2 col-md-8'>
+                <div id='testimonial-slider' className='owl-carousel'>
+                  {testimonials.items.map(
+                    ({ img, name, testimonial, title, url }, key) => (
+                      <TestimonialItem
+                        key={key}
+                        name={name}
+                        title={title}
+                        testimonial={testimonial}
+                        url={url}
+                        img={img}
+                      />
+                    )
+                  )}
+                </div>
               </div>
             </div>
           </div>
-        </div>
+        )}
       </div>
     </section>
   );

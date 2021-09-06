@@ -1,7 +1,7 @@
 import { portfolioInitialState, IPortfolio} from './initialStates';
 
 enum actions {
-  SET_PORTFOLIO = 'portfolio/about/SET_PORTFOLIO',
+  SET_PORTFOLIO = 'portfolio/portfolio/SET_PORTFOLIO',
 }
 
 const reducer = (
