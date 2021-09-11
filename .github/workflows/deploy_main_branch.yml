@@ -9,22 +9,18 @@ jobs:
     strategy:
       matrix:
         node-version: [v14.15.x]
+        
     steps:
-    - uses: actions/checkout@v2
+      - name: Checkout 🛎️
+        uses: actions/checkout@v2.3.1
 
-    - name: Use Node.js ${{ matrix.node-version }}
-      uses: actions/setup-node@v2
-      with:
-        node-version: ${{ matrix.node-version }}
+      - name: Install and Build 🔧 
+        run: |
+          npm install
+          npm run build
 
-    - name: Install Packages
-      run: npm install
-    
-    - name: Run build
-      run: npm run build
-
-    - name: Deploy to gh-pages
-      uses: peaceiris/actions-gh-pages@v3
-      with:
-        github_token: ${{secrets.PERSONAL_ACCESS_TOKEN}}
-        publish_dir: ./build
+      - name: Deploy 🚀
+        uses: JamesIves/github-pages-deploy-action@4.1.5
+        with:
+          branch: main # The branch the action should deploy to.
+          folder: build # The folder the action should deploy.
