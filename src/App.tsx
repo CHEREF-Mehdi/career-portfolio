@@ -9,9 +9,8 @@ import ReactGa from 'react-ga';
 const App: React.FC = () => {
   const gaTrackingId: string = process.env.REACT_APP_GA_TRAKING_ID || '';
   React.useEffect(() => {
-    console.log(gaTrackingId);
     ReactGa.initialize(gaTrackingId);
-    ReactGa.pageview('/');
+    ReactGa.pageview(window.location.pathname);
   }, [gaTrackingId]);
 
   return (
