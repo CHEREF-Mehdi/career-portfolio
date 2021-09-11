@@ -49,6 +49,8 @@ type IDispatch =
 
 const updateState = (Dispatch: React.Dispatch<IDispatch>, data: IportfolioState) => {
   const { about, contact, portfolio, resume, services, testimonials } = data;
+  Dispatch(setPortfolioAction(portfolio));
+  Dispatch(setTestimonialAction(testimonials));
   Dispatch(setAboutAction(about));
   Dispatch(setContactAction(contact));
   Dispatch(setServiceAction(services));
@@ -57,14 +59,11 @@ const updateState = (Dispatch: React.Dispatch<IDispatch>, data: IportfolioState)
   Dispatch(setPersonalProjectsAction(resume.personalProject));
   Dispatch(setScientificPapersAction(resume.scientificPapers));
   Dispatch(setOrganizationsAction(resume.organizations));
-  Dispatch(setPortfolioAction(portfolio));
-  Dispatch(setTestimonialAction(testimonials));
   setTimeout(()=>{
     Dispatch(setControlUItAction(false));    
     document.getElementById("on-loading")?.classList.remove('hide');
     document.body.classList.remove('no-scroll-bare');    
   },2000)
-  
 };
 
 export const getAllData = () => {

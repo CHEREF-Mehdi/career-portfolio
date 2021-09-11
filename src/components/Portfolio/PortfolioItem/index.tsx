@@ -7,7 +7,7 @@ export const PortfolioItem: React.FC<IPortfolioItem> = ({
   link,
 }) => {
   return (
-      <div className={`col-sm-6 col-md-4 col-lg-4 col-xl-4 mix ${filter}`} data-wow-delay='0.4s'>
+      <div className={`col-sm-6 col-md-4 col-lg-4 col-xl-4 mix ${filter}`}>
         <div className='portfolio-item'>
           <div className='shot-item'>
             <img src={process.env.PUBLIC_URL + img} alt='CHEREF Mehdi' />

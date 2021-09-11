@@ -38,7 +38,7 @@ export const Portfolio: React.FC = () => {
               </button>
             </div>
           </div>
-          <div id='portfolio' className='row wow fadeInDown'>
+          <div id='portfolio' className='row'>
             {items.map(({ img, filter, link }, key) => {
               return (
                 <PortfolioItem
@@ -56,7 +56,7 @@ export const Portfolio: React.FC = () => {
       <br />
       {/* //   <!-- Recommendation Section start --> */}
       <div id='Recommendations' className='container'>
-        <h2 className='section-title wow flipInX' data-wow-delay='0.4s'>
+        <h2 className='section-title'>
           Testimonials
         </h2>
         {testimonials.items.length!==0 && (

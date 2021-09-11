@@ -21,9 +21,7 @@ export const AboutMe: React.FC = () => {
             <div className='img-thumb wow fadeInLeft' data-wow-delay='0.3s'>
               <img
                 className='img-fluid'
-                src={
-                  process.env.PUBLIC_URL + about.imgUrl
-                }
+                src={process.env.PUBLIC_URL + about.imgUrl}
                 alt='CHEREF Mehdi'
               />
             </div>
@@ -70,14 +68,19 @@ export const AboutMe: React.FC = () => {
 
                   <li>
                     <span className='pro-title'> Location </span>
-                    <span className='pro-detail'>{about.location}</span>a
+                    <span className='pro-detail'>{about.location}</span>
                   </li>
 
                   <li>
-                    <span className='pro-title'> e-mail </span>
+                    <span className='pro-title'> e-mail</span>
                     <span className='pro-detail'>
                       <a href={`mailto:${contact.email1}`}>{contact.email1}</a>
-                      {' / '}
+                    </span>
+                  </li>
+
+                  <li>
+                    <span className='pro-title'> Pro e-mail </span>
+                    <span className='pro-detail'>
                       <a href={`mailto:${contact.email2}`}>{contact.email2}</a>
                     </span>
                   </li>
