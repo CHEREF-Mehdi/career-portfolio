@@ -20,7 +20,7 @@ export const Modal: React.FC = () => {
       <div className='modal-dialog modal-dialog-centered' role='document'>
         <div
           className='modal-content'
-          style={{ background: 'black', boxShadow: '0 0 30px 5px #ededed' }}
+          style={{ background: 'black', boxShadow: '0 0 30px 5px rgba(255, 251, 251, 0.5)' }}
         >
           <div className='modal-header'>
             <div id='ModalTitle'>

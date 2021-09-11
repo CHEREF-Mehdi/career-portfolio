@@ -54,15 +54,17 @@ interface IResumeItem {
   item: NS_ReduxNS.IResumeItem;
   mapLinks?: 'TOP' | 'BOTTOM';
   index: number;
+  show?: boolean;
 }
 
 export const ResumeItem: React.FC<IResumeItem> = ({
   item,
   mapLinks,
   index,
+  show = false,
 }) => {
   const { title, year, content, id } = item;
-  
+
   const onReadAbstractClick = (selectedPaper: number) => {
     store.dispatch(setSelectedScientificPapersAction(selectedPaper));
   };
@@ -80,7 +82,7 @@ export const ResumeItem: React.FC<IResumeItem> = ({
         {id || content[0]?.abstract ? (
           <div style={{ position: 'absolute', top: '10px', right: '10px' }}>
             {id ? (
-              <i className='fas fa-chevron-circle-left rotate' />
+              <i className={`fas fa-chevron-circle-left rotate ${show && 'down'}`} />
             ) : (
               <p
                 className='abstract'
@@ -103,7 +105,7 @@ export const ResumeItem: React.FC<IResumeItem> = ({
           <div id={`#accordion${id}`}>
             <div
               id={`collapse${id}`}
-              className='collapse'
+              className={`collapse ${show && 'show'}`}
               data-parent={`#accordion${id}`}
             >
               {mapContent(content, mapLinks)}

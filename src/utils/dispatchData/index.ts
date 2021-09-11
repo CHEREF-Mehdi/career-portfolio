@@ -60,14 +60,16 @@ const updateState = (Dispatch: React.Dispatch<IDispatch>, data: IportfolioState)
   Dispatch(setPortfolioAction(portfolio));
   Dispatch(setTestimonialAction(testimonials));
   setTimeout(()=>{
-    Dispatch(setControlUItAction(false));
-    document.body.classList.remove('no-scroll-bare');
-  },1500)
+    Dispatch(setControlUItAction(false));    
+    document.getElementById("on-loading")?.classList.remove('hide');
+    document.body.classList.remove('no-scroll-bare');    
+  },2000)
   
 };
 
 export const getAllData = () => {
-  document.body.classList.add('no-scroll-bare');
+  document.getElementById("on-loading")?.classList.add('hide');
+  document.body.classList.add('no-scroll-bare');  
   return (Dispatch: React.Dispatch<IDispatch>) => {
     API_CALLS.getPortfolioData
       .then((result) => {

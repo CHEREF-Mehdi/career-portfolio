@@ -13,14 +13,27 @@ import { IAppState } from '../../store/ducks/rootReducer';
 
 import { css } from '@emotion/react';
 import PacmanLoader from 'react-spinners/PacmanLoader';
+import { getRandomInt } from '../../utils';
 
 // Can be a string as well. Need to ensure each key-value pair ends with ;
 const override = css`
   display: block;
   margin: 0 auto;
   top: 40vh;
-  left: -50px;
+  left: -25px;
 `;
+
+const loadingTexts: string[] = [
+  "We're building the buildings as fast as we can.",
+  "Don't worry - a few bits tried to escape, but we caught them.",
+  'The server is powered by a lemon and two electrodes.',
+  'What do you call 8 Hobbits? A Hobbyte',
+  'There is no spoon. Because we are not done loading it.',
+  'git happens',
+  'If you type Google into Google you can break the internet',
+  'Web developers do it with <style>',
+  'Waiting Daenerys say all her titles...',
+];
 
 const Container: React.FC = () => {
   const dispatch: React.Dispatch<IAppStateAPIAction> = useDispatch();
@@ -35,7 +48,9 @@ const Container: React.FC = () => {
       {loading && (
         <div className='loader'>
           <PacmanLoader color='#00b4d9' css={override} size={50} />
-          <h5 className='loader-message'>Loading ...</h5>
+          <div className='loader-message-box'>
+            <h5>{loadingTexts[getRandomInt(loadingTexts.length)]}</h5>
+          </div>
         </div>
       )}
       <Header />

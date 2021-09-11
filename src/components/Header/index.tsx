@@ -4,9 +4,11 @@ import { NavBar } from './NavBar';
 
 export const Header: React.FC = () => {
   return (
-    <header id='header-wrap'>
-      <NavBar />
-      <HeroArea />
-    </header>
+    <div id='on-loading'>
+      <header id='header-wrap'>
+        <NavBar />
+        <HeroArea />
+      </header>
+    </div>
   );
 };

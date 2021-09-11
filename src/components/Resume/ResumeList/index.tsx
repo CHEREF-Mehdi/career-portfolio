@@ -20,6 +20,7 @@ export const ResumeList: React.FC<NS_ReduxNS.IResumeList> = ({
             index={key}
             item={element}
             mapLinks={mapLinks}
+            show={title==="experience" && key===0}
           />
         ))}
       </ul>
