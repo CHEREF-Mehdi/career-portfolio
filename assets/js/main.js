@@ -84,9 +84,11 @@
       return false;
     });
 
-    $('[data-toggle="popover"]').popover();
-
+    /* Back Top Link active
+    ========================================================*/
     $(document).ready(function () {
+      $('[data-toggle="popover"]').popover();
+
       $('#testimonial-slider').owlCarousel({
         items: 1,
         itemsDesktop: [1000, 1],
@@ -96,6 +98,10 @@
         pagination: true,
         navigation: false,
         autoPlay: true,
+      });
+
+      $('.div-rotate').click(function (e) {
+        $(this).find('i').toggleClass('down');
       });
     });
   });

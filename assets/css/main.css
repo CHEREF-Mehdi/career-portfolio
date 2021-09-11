@@ -279,14 +279,25 @@ a.back-to-top:focus {
   text-decoration: none;
 }
 
-#loader {
+.no-scroll-bare {
+  -ms-overflow-style: none; /* for Internet Explorer, Edge */
+  scrollbar-width: none; /* for Firefox */
+  overflow-y: scroll;
+}
+
+.no-scroll-bare::-webkit-scrollbar {
+  display: none; /* for Chrome, Safari, and Opera */
+}
+
+.loader {
   position: fixed;
-  background: #fff;
+  background: #000;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
   z-index: 9999999999;
+  pointer-events: all;
 }
 
 .square-spin {
@@ -416,7 +427,7 @@ a.back-to-top:focus {
 .timeline li .content-text {
   background: rgba(153, 153, 153, 0.5);
   padding: 20px;
-  border-radius: 5px ;
+  border-radius: 5px;
 }
 
 .timeline li .line-title {
@@ -924,11 +935,11 @@ a:not([href]):not([tabindex]):hover {
 
 /* Services Item */
 .services {
-  background: #f0f0f0;
+  background: #151515;
 }
 
 .services-item {
-  background: #fff;
+  background: rgba(153, 153, 153, 0.5);
   border-radius: 4px;
   padding: 48px 20px;
   box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
@@ -958,7 +969,7 @@ a:not([href]):not([tabindex]):hover {
 .services-item .services-content h3 a {
   font-size: 18px;
   text-transform: uppercase;
-  color: #666;
+  color: #ddd;
 }
 
 .services-item .services-content h3 a:hover {
@@ -996,7 +1007,7 @@ a:not([href]):not([tabindex]):hover {
 }
 
 .contact-form-area {
-  background: #fff;
+  background: #000;
   box-shadow: 0 0 30px #ededed;
   padding: 60px 40px;
 }
@@ -1016,7 +1027,7 @@ a:not([href]):not([tabindex]):hover {
   margin: 10px 22px;
   padding: 3px 55px;
   position: relative;
-  color: #666;
+  color: #ddd;
 }
 
 .footer-right-contact .single-contact p {
@@ -1041,6 +1052,11 @@ a:not([href]):not([tabindex]):hover {
   -webkit-transform: translateY(-50%);
   transform: translateY(-50%);
   width: 40px;
+}
+
+.footer-right-area {
+  padding: 0;
+  margin-bottom: 20px;
 }
 
 #contact {
@@ -1071,6 +1087,20 @@ a:not([href]):not([tabindex]):hover {
   transition: all 0.3s;
   z-index: 101;
   width: 100%;
+}
+
+/*======= popover =========*/
+.bs-popover-bottom .arrow::after,
+.bs-popover-auto[x-placement^='bottom'] .arrow::after {
+  border-bottom-color: #000;
+}
+
+.popover {
+  background: #000;
+}
+
+.popover-body {
+  color: #ddd;
 }
 
 /* Footer Area Start */
@@ -1225,6 +1255,7 @@ a:not([href]):not([tabindex]):hover {
 
 .testimonial {
   margin: 0 10px;
+  padding: 5px;
 }
 .testimonial .testimonial-content {
   margin: 20px 0 50px 0;
@@ -1243,15 +1274,17 @@ a:not([href]):not([tabindex]):hover {
   left: 0;
   right: 0;
 }
+
 .testimonial .description {
   padding: 25px 35px;
   margin: 0;
   background: #00b4d9;
   border-radius: 15px;
-  font-size: 20px;
+  font-size: 17px;
   color: #fff;
   position: relative;
 }
+
 .testimonial .description:before,
 .testimonial .description:after {
   font-family: 'Font Awesome 5 Free';
@@ -1326,10 +1359,11 @@ a:not([href]):not([tabindex]):hover {
   background: #00b4d9;
   border: 1px solid #00b4d9;
 }
+
 @media only screen and (max-width: 479px) {
   .testimonial .description {
     padding: 20px;
-    font-size: 16px;
+    font-size: 14px;
   }
   .testimonial .testimonial-profile {
     padding: 10px;
