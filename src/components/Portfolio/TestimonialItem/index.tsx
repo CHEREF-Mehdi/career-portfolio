@@ -13,7 +13,7 @@ export const TestimonialItem: React.FC<ITestimonialprofile> = ({
       <div className='testimonial-content'>
         <p className='description'>{testimonial}</p>
       </div>
-      <div className='testimonial-profile'>
+      <div className='testimonial-profile' >
         <div className='pic'>
           <img
             src={process.env.PUBLIC_URL + img}

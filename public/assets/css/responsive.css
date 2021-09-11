@@ -1,10 +1,16 @@
 /* only small desktops */
-@media (min-width: 992px) and (max-width: 1199px) {
+@media (min-width: 992px) {
   #hero-area .contents .head-title {
     font-size: 40px;
   }
   .services-item .services-content h3 a {
     font-size: 14px;
+  }
+  .loader-message {
+    position: relative;
+    top: 50vh;
+    left: 45vw;
+    color: #00b4d9;
   }
 }
 
@@ -19,6 +25,12 @@
   }
   .services-item {
     margin-bottom: 20px;
+  }
+  .loader-message {
+    position: relative;
+    top: 50vh;
+    left: 45vw;
+    color: #00b4d9;
   }
 }
 
@@ -36,6 +48,13 @@
   }
   .counter-section .counter p {
     font-size: 14px;
+  }
+
+  .loader-message {
+    position: relative;
+    top: 50vh;
+    left: 35vw;
+    color: #00b4d9;
   }
 }
 
@@ -75,7 +94,11 @@
   .contact-form-area {
     padding: 40px 0px;
   }
-  .footer-right-area {
-    margin-top: 20px;
+
+  .loader-message {
+    position: relative;
+    top: 50vh;
+    left: 35vw;
+    color: #00b4d9;
   }
 }

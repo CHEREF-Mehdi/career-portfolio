@@ -3,8 +3,8 @@ import { useSelector } from 'react-redux';
 import { IAppState } from '../../store/ducks/rootReducer';
 
 export const AboutMe: React.FC = () => {
-  const about = useSelector((state: IAppState) => state.about);
-  const contact = useSelector((state: IAppState) => state.contact);
+  const about = useSelector((state: IAppState) => state.careerData.about);
+  const contact = useSelector((state: IAppState) => state.careerData.contact);
   return (
     //   <!-- About Section Start -->
     <section id='about' className='section-padding'>

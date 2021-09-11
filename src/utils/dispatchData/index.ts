@@ -1,6 +1,6 @@
-import { IAboutAction, setAboutAction } from './about';
-import { IContactaction, setContactAction } from './contact';
-import { IServiceAction, setServiceAction } from './myServices';
+import { IAboutAction, setAboutAction } from '../../store/ducks/about';
+import { IContactaction, setContactAction } from '../../store/ducks/contact';
+import { IServiceAction, setServiceAction } from '../../store/ducks/myServices';
 import {
   IResumeAction,
   setProExperiencesAction,
@@ -9,13 +9,15 @@ import {
   setScientificPapersAction,
   setSelectedScientificPapersAction,
   setOrganizationsAction,
-} from './resume';
-import { IPortfolioAction, setPortfolioAction } from './portfolio';
-import { ITestimonialAction, setTestimonialAction } from './testimonial';
-import * as API_CALLS from '../../utils/apiCalls';
-import { toastNotify } from '../../utils';
-import { IAppState } from './rootReducer';
-import { oldDataGlobalState } from '../../utils/oldData';
+} from '../../store/ducks/resume';
+import { IPortfolioAction, setPortfolioAction } from '../../store/ducks/portfolio';
+import { ITestimonialAction, setTestimonialAction } from '../../store/ducks/testimonial';
+import { IControlUIAction, setControlUItAction } from '../../store/ducks/controlUI';
+
+import * as API_CALLS from '../apiCalls';
+import { toastNotify } from '..';
+import { IportfolioState } from '../../store/ducks/rootReducer';
+import { oldDataGlobalState } from '../oldData';
 
 const appActionObj = {
   setAboutAction,
@@ -29,6 +31,7 @@ const appActionObj = {
   setOrganizationsAction,
   setPortfolioAction,
   setTestimonialAction,
+  setControlUItAction
 };
 
 type IAppAction = NS_ReduxNS.IactionUnion<typeof appActionObj>;
@@ -41,9 +44,10 @@ type IDispatch =
   | IServiceAction
   | IResumeAction
   | IPortfolioAction
-  | ITestimonialAction;
+  | ITestimonialAction
+  | IControlUIAction;
 
-const updateState = (Dispatch: React.Dispatch<IDispatch>, data: IAppState) => {
+const updateState = (Dispatch: React.Dispatch<IDispatch>, data: IportfolioState) => {
   const { about, contact, portfolio, resume, services, testimonials } = data;
   Dispatch(setAboutAction(about));
   Dispatch(setContactAction(contact));
@@ -55,9 +59,15 @@ const updateState = (Dispatch: React.Dispatch<IDispatch>, data: IAppState) => {
   Dispatch(setOrganizationsAction(resume.organizations));
   Dispatch(setPortfolioAction(portfolio));
   Dispatch(setTestimonialAction(testimonials));
+  setTimeout(()=>{
+    Dispatch(setControlUItAction(false));
+    document.body.classList.remove('no-scroll-bare');
+  },1500)
+  
 };
 
 export const getAllData = () => {
+  document.body.classList.add('no-scroll-bare');
   return (Dispatch: React.Dispatch<IDispatch>) => {
     API_CALLS.getPortfolioData
       .then((result) => {

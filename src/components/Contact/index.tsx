@@ -3,7 +3,7 @@ import { useSelector } from 'react-redux';
 import { IAppState } from '../../store/ducks/rootReducer';
 
 export const Contact: React.FC = () => {
-  const contact = useSelector((state: IAppState) => state.contact);
+  const contact = useSelector((state: IAppState) => state.careerData.contact);
   return (
     <section id='contact' className='section-padding'>
       <div className='contact-form'>
@@ -23,7 +23,6 @@ export const Contact: React.FC = () => {
               >
                 <div
                   className='col-md-12 col-lg-12 col-sm-12 footer-right-area wow fadeIn'
-                  style={{ padding: 0 }}
                 >
                   <h2 style={{ paddingLeft: '20px' }}>Contact Address</h2>
                   <div className='footer-right-contact'>

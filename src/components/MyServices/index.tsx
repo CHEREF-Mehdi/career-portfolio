@@ -4,7 +4,7 @@ import { IAppState } from '../../store/ducks/rootReducer';
 import { ServiceItem } from './ServiceItem';
 
 export const MyServices: React.FC = () => {
-  const services = useSelector((state: IAppState) => state.services);
+  const services = useSelector((state: IAppState) => state.careerData.services);
   return (
     // <!-- Services Section Start -->
     <section id='services' className='services section-padding'>

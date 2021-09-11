@@ -10,7 +10,7 @@ export const Resume: React.FC = () => {
     personalProject,
     scientificPapers,
     organizations,
-  } = useSelector((state: IAppState) => state.resume);
+  } = useSelector((state: IAppState) => state.careerData.resume);
   return (
     // <!-- Resume Section Start -->
     <div id='resume' className='section-padding'>

@@ -5,8 +5,8 @@ import { PortfolioItem } from './PortfolioItem';
 import { TestimonialItem } from './TestimonialItem';
 
 export const Portfolio: React.FC = () => {
-  const { items } = useSelector((state: IAppState) => state.portfolio);
-  const testimonials = useSelector((state: IAppState) => state.testimonials);
+  const { items } = useSelector((state: IAppState) => state.careerData.portfolio);
+  const testimonials = useSelector((state: IAppState) => state.careerData.testimonials);
 
   return (
     // <!-- Portfolio Recent Projects -->

@@ -4,7 +4,8 @@ import { IAppState } from '../../../store/ducks/rootReducer';
 import { getRandomInt } from '../../../utils';
 
 export const HeroArea: React.FC = () => {
-  const getAbout = useSelector((state: IAppState) => state.about);
+  const getAbout = useSelector((state: IAppState) => state.careerData.about);
+
   const [quote, setQuote] = React.useState<{ i: number; change: boolean }>({
     i: 0,
     change: true,
@@ -63,7 +64,6 @@ export const HeroArea: React.FC = () => {
                   data-placement='bottom'
                   data-toggle='popover'
                   tabIndex={0}
-                  data-trigger="focus"
                   data-content={getAbout.quotes[quote.i]}
                   onClick={onGetQuoteClick}
                 >

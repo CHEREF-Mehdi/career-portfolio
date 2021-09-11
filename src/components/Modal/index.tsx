@@ -3,9 +3,11 @@ import { useSelector } from 'react-redux';
 import { IAppState } from '../../store/ducks/rootReducer';
 
 export const Modal: React.FC = () => {
-  const { scientificPapers } = useSelector((state: IAppState) => state.resume);
+  const { scientificPapers } = useSelector(
+    (state: IAppState) => state.careerData.resume
+  );
   const { selectedItem, items } = scientificPapers;
-  
+
   return (
     <div
       className='modal fade'
@@ -16,7 +18,10 @@ export const Modal: React.FC = () => {
       aria-hidden='true'
     >
       <div className='modal-dialog modal-dialog-centered' role='document'>
-        <div className='modal-content'>
+        <div
+          className='modal-content'
+          style={{ background: 'black', boxShadow: '0 0 30px 5px #ededed' }}
+        >
           <div className='modal-header'>
             <div id='ModalTitle'>
               <a
@@ -46,6 +51,7 @@ export const Modal: React.FC = () => {
               className='close'
               data-dismiss='modal'
               aria-label='Close'
+              style={{color:"#fff",opacity: 0.8}}
             >
               <span aria-hidden='true'>&times;</span>
             </button>
