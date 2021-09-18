@@ -6,7 +6,7 @@ export const NavBar: React.FC = () => {
   const onNavigate = (goTo: string) => {
     ReactGa.event({
       category: GAEventCategories.MENU_NAVIGATION,
-      action: 'Go to '+goTo,
+      action: 'Go to ' + goTo,
     });
   };
 
@@ -68,40 +68,26 @@ export const NavBar: React.FC = () => {
 
       {/* <!-- Mobile Menu Start --> */}
       <ul className='onepage-nev mobile-menu'>
-        <li>
-          <a href='#hero-area' onClick={() => onNavigate('Home')}>
-            Home
-          </a>
+        <li onClick={() => onNavigate('Home')}>
+          <a href='#hero-area'>Home</a>
         </li>
-        <li>
-          <a href='#about' onClick={() => onNavigate('About')}>
-            About
-          </a>
+        <li onClick={() => onNavigate('About')}>
+          <a href='#about'>About</a>
         </li>
-        <li>
-          <a href='#services' onClick={() => onNavigate('Services')}>
-            Services
-          </a>
+        <li onClick={() => onNavigate('Services')}>
+          <a href='#services'>Services</a>
         </li>
-        <li>
-          <a href='#resume' onClick={() => onNavigate('Resume')}>
-            Resume
-          </a>
+        <li onClick={() => onNavigate('Resume')}>
+          <a href='#resume'>Resume</a>
         </li>
-        <li>
-          <a href='#portfolio' onClick={() => onNavigate('About my journey')}>
-            About my journey
-          </a>
+        <li onClick={() => onNavigate('About my journey')}>
+          <a href='#portfolio'>About my journey</a>
         </li>
-        <li>
-          <a href='#Recommendations' onClick={() => onNavigate('Testimonials')}>
-            Testimonials
-          </a>
+        <li onClick={() => onNavigate('Testimonials')}>
+          <a href='#Recommendations'>Testimonials</a>
         </li>
-        <li>
-          <a href='#contact' onClick={() => onNavigate('Contact')}>
-            Contact
-          </a>
+        <li onClick={() => onNavigate('Contact')}>
+          <a href='#contact'>Contact</a>
         </li>
       </ul>
       {/* <!-- Mobile Menu End --> */}

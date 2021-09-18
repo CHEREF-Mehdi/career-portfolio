@@ -4,29 +4,33 @@ import { setSelectedScientificPapersAction } from '../../../store/ducks/resume';
 import ReactGa from 'react-ga';
 import { GAEventCategories } from '../../../utils';
 
-const LinkTag: React.FC<{ link: string; title: string }> = ({
-  link,
-  title,
-}) => {
-  const onClick = () => {
-    ReactGa.event({
-      category: GAEventCategories.LINK_CLICK,
-      action: title,
-    });
+const LinkTag: React.FC<{ link: string; title: string; description: string }> =
+  ({ link, title, description }) => {
+    const onClick = () => {
+      ReactGa.event({
+        category: GAEventCategories.LINK_CLICK,
+        action: title,
+        label: description.substring(0,50),
+      });
+    };
+    return (
+      <a
+        href={link}
+        target='_blank'
+        rel='noopener noreferrer'
+        onClick={onClick}
+      >
+        {' '}
+        <i className='fa fa-link' aria-hidden='true'></i> Link{' '}
+      </a>
+    );
   };
-  return (
-    <a href={link} target='_blank' rel='noopener noreferrer' onClick={onClick}>
-      {' '}
-      <i className='fa fa-link' aria-hidden='true'></i> Link{' '}
-    </a>
-  );
-};
 
-function mapLinkList(links: string[], title: string) {
+function mapLinkList(links: string[], title: string, description: string) {
   return (
     <>
       {links.map((link, key) => (
-        <LinkTag key={key} link={link} title={title} />
+        <LinkTag key={key} link={link} title={title} description={description}/>
       ))}
     </>
   );
@@ -47,12 +51,13 @@ function mapContent(
           >
             <p className='line-text'>
               {value.describtion}
-              {mapLinks === 'TOP' && mapLinkList(value.links, title)}
+              {mapLinks === 'TOP' &&
+                mapLinkList(value.links, title, value.describtion)}
             </p>
             {value.tools && (
               <p className='line-text' style={{ fontWeight: 'bold' }}>
                 {value.tools}
-                {mapLinks === 'BOTTOM' && mapLinkList(value.links, title)}
+                {mapLinks === 'BOTTOM' && mapLinkList(value.links, title,value.describtion)}
               </p>
             )}
           </div>
@@ -77,7 +82,7 @@ export const ResumeItem: React.FC<IResumeItem> = ({
 }) => {
   const { title, year, content, id } = item;
 
-  const [collapse, setCollapse]=React.useState(show);
+  const [collapse, setCollapse] = React.useState(show);
 
   const onReadAbstractClick = (selectedPaper: number) => {
     store.dispatch(setSelectedScientificPapersAction(selectedPaper));
@@ -88,8 +93,7 @@ export const ResumeItem: React.FC<IResumeItem> = ({
   };
 
   const onExperienceExpend = (id: string | number | undefined) => {
-
-    if(typeof id!== 'undefined') setCollapse(!collapse);
+    if (typeof id !== 'undefined') setCollapse(!collapse);
 
     if (typeof id === 'number') {
       let experience = year as string;
