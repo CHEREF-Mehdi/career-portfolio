@@ -2,21 +2,28 @@ import * as React from 'react';
 import { useSelector } from 'react-redux';
 import { IAppState } from '../../store/ducks/rootReducer';
 
+const styles: IClassNames = {
+  imgcontainer: {
+    display: 'flex',
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  bio: {
+    textAlign: 'justify',
+    textJustify: 'inter-word',
+  },
+} as const;
+
 export const AboutMe: React.FC = () => {
   const about = useSelector((state: IAppState) => state.careerData.about);
   const contact = useSelector((state: IAppState) => state.careerData.contact);
   return (
-    //   <!-- About Section Start -->
     <section id='about' className='section-padding'>
       <div className='container'>
         <div className='row'>
           <div
             className='col-lg-6 col-md-6 col-sm-12 col-xs-12'
-            style={{
-              display: 'flex',
-              justifyContent: 'center',
-              alignItems: 'center',
-            }}
+            style={styles.imgcontainer}
           >
             <div className='img-thumb wow fadeInLeft' data-wow-delay='0.3s'>
               <img
@@ -33,7 +40,7 @@ export const AboutMe: React.FC = () => {
             >
               <h3>Hi Guys!</h3>
               <p
-                style={{ textAlign: 'justify', textJustify: 'inter-word' }}
+                style={styles.bio}
                 dangerouslySetInnerHTML={{ __html: about.description }}
               ></p>
               <div className='about-profile'>
@@ -119,6 +126,5 @@ export const AboutMe: React.FC = () => {
         </div>
       </div>
     </section>
-    // <!-- About Section End -->;
   );
 };

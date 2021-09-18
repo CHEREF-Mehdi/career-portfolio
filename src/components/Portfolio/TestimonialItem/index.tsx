@@ -1,6 +1,22 @@
 import * as React from 'react';
 import { ITestimonialprofile } from '../../../store/ducks/initialStates';
 
+const styles: IClassNames = {
+  img: { maxWidth: '100%', maxHeight: '100%' },
+  titleContainer: {
+    display: 'flex',
+    flexWrap: 'nowrap',
+    minHeight: '110px',
+  },
+  titleBody: {
+    display: 'flex',
+    minHeight: '100%',
+    justifyContent: 'center',
+    justifyItems: 'center',
+    flexDirection: 'column',
+  },
+} as const;
+
 export const TestimonialItem: React.FC<ITestimonialprofile> = ({
   img,
   name,
@@ -13,31 +29,13 @@ export const TestimonialItem: React.FC<ITestimonialprofile> = ({
       <div className='testimonial-content'>
         <p className='description'>{testimonial}</p>
       </div>
-      <div className='testimonial-profile' >
+      <div className='testimonial-profile'>
         <div className='pic'>
-          <img
-            src={process.env.PUBLIC_URL + img}
-            style={{ maxWidth: '100%', maxHeight: '100%' }}
-            alt=''
-          />
+          <img src={process.env.PUBLIC_URL + img} style={styles.img} alt='' />
         </div>
-        <div
-          style={{
-            display: 'flex',
-            flexWrap: 'nowrap',
-            minHeight: '110px',
-          }}
-        >
+        <div style={styles.titleContainer}>
           <h3 className='title'>
-            <div
-              style={{
-                display: 'flex',
-                minHeight: '100%',
-                justifyContent: 'center',
-                justifyItems: 'center',
-                flexDirection: 'column',
-              }}
-            >
+            <div style={styles.titleBody}>
               <a href={url} target='_blank' rel='noopener noreferrer'>
                 {name}
               </a>

@@ -447,7 +447,7 @@ a.back-to-top:focus {
 
 .timeline li .line-title {
   font-size: 16px;
-  line-height: 6px;
+  line-height: 26px;
 }
 
 .timeline li span {
@@ -1074,7 +1074,7 @@ a:not([href]):not([tabindex]):hover {
 
 .popover {
   background: #000;
-  box-shadow: 0 0 10px 5px rgba(255, 251, 251, 0.5)
+  box-shadow: 0 0 10px 5px rgba(255, 251, 251, 0.5);
 }
 
 .popover-body {
@@ -1216,15 +1216,59 @@ a:not([href]):not([tabindex]):hover {
 /* ==========================================================================
   Portfolio icon rotation
    ========================================================================== */
-.rotate {
-  -moz-transition: all 0.2s linear;
-  -webkit-transition: all 0.2s linear;
-  transition: all 0.2s linear;
+
+.rotateUp_this {
+  animation-name: rotateUp;
+  animation-duration: 3s;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
 }
-.rotate.down {
-  -moz-transform: rotate(-90deg);
-  -webkit-transform: rotate(-90deg);
-  transform: rotate(-90deg);
+
+@keyframes rotateUp {
+  0% {
+    -moz-transform: rotate(0deg);
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+
+  7% {
+    -moz-transform: rotate(90deg);
+    -webkit-transform: rotate(90deg);
+    transform: rotate(90deg);
+  }
+
+  15% {
+    -moz-transform: rotate(0deg);
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+}
+
+.rotateDown_this {
+  animation-name: rotateDown;
+  animation-duration: 3s;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+}
+
+@keyframes rotateDown {
+  0% {
+    -moz-transform: rotate(0deg);
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+
+  7% {
+    -moz-transform: rotate(-90deg);
+    -webkit-transform: rotate(-90deg);
+    transform: rotate(-90deg);
+  }
+
+  15% {
+    -moz-transform: rotate(0deg);
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
 }
 
 /* ==========================================================================

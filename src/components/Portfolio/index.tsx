@@ -4,9 +4,21 @@ import { IAppState } from '../../store/ducks/rootReducer';
 import { PortfolioItem } from './PortfolioItem';
 import { TestimonialItem } from './TestimonialItem';
 
+const styles: IClassNames = {
+  testimonialContainer: {
+    display: 'flex',
+    justifyContent: 'center',
+    justifyItems: 'center',
+  },
+} as const;
+
 export const Portfolio: React.FC = () => {
-  const { items } = useSelector((state: IAppState) => state.careerData.portfolio);
-  const testimonials = useSelector((state: IAppState) => state.careerData.testimonials);
+  const { items } = useSelector(
+    (state: IAppState) => state.careerData.portfolio
+  );
+  const testimonials = useSelector(
+    (state: IAppState) => state.careerData.testimonials
+  );
 
   return (
     // <!-- Portfolio Recent Projects -->
@@ -56,19 +68,10 @@ export const Portfolio: React.FC = () => {
       <br />
       {/* //   <!-- Recommendation Section start --> */}
       <div id='Recommendations' className='container'>
-        <h2 className='section-title'>
-          Testimonials
-        </h2>
-        {testimonials.items.length!==0 && (
+        <h2 className='section-title'>Testimonials</h2>
+        {testimonials.items.length !== 0 && (
           <div className='container'>
-            <div
-              className='row'
-              style={{
-                display: 'flex',
-                justifyContent: 'center',
-                justifyItems: 'center',
-              }}
-            >
+            <div className='row' style={styles.testimonialContainer}>
               <div className='col-md-offset-2 col-md-8'>
                 <div id='testimonial-slider' className='owl-carousel'>
                   {testimonials.items.map(

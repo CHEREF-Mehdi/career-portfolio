@@ -2,6 +2,16 @@ import * as React from 'react';
 import { useSelector } from 'react-redux';
 import { IAppState } from '../../store/ducks/rootReducer';
 
+const styles: IClassNames = {
+  modalContainer: { zIndex: 9999999 },
+  modalBody: {
+    background: 'black',
+    boxShadow: '0 0 30px 5px rgba(255, 251, 251, 0.5)',
+  },
+  modalCloseBtn: { color: '#fff', opacity: 0.8 },
+  abstractTextBody: { textAlign: 'justify', textJustify: 'inter-word' },
+} as const;
+
 export const Modal: React.FC = () => {
   const { scientificPapers } = useSelector(
     (state: IAppState) => state.careerData.resume
@@ -12,16 +22,13 @@ export const Modal: React.FC = () => {
     <div
       className='modal fade'
       id='Modal'
-      style={{ zIndex: 9999999 }}
+      style={styles.modalContainer}
       role='dialog'
       aria-labelledby='exampleModalCenterTitle'
       aria-hidden='true'
     >
       <div className='modal-dialog modal-dialog-centered' role='document'>
-        <div
-          className='modal-content'
-          style={{ background: 'black', boxShadow: '0 0 30px 5px rgba(255, 251, 251, 0.5)' }}
-        >
+        <div className='modal-content' style={styles.modalBody}>
           <div className='modal-header'>
             <div id='ModalTitle'>
               <a
@@ -51,7 +58,7 @@ export const Modal: React.FC = () => {
               className='close'
               data-dismiss='modal'
               aria-label='Close'
-              style={{color:"#fff",opacity: 0.8}}
+              style={styles.modalCloseBtn}
             >
               <span aria-hidden='true'>&times;</span>
             </button>
@@ -60,7 +67,7 @@ export const Modal: React.FC = () => {
             <h5 className='modal-title line-title'>
               <b>Abstract:</b>
             </h5>
-            <div style={{ textAlign: 'justify', textJustify: 'inter-word' }}>
+            <div style={styles.abstractTextBody}>
               <small>
                 <span>
                   <i>

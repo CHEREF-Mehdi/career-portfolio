@@ -3,7 +3,6 @@ import * as React from 'react';
 export const Footer: React.FC = () => {
   return (
     <>
-      {/* <!-- Footer Section Start --> */}
       <footer className='footer-area section-padding'>
         <div className='container'>
           <div className='row'>
@@ -23,8 +22,6 @@ export const Footer: React.FC = () => {
           </div>
         </div>
       </footer>
-      {/* <!-- Footer Section End --> */}
-
       {/* <!-- Go to Top Link --> */}
       <a href='#hero-area' className='back-to-top'>
         <i className='icon-arrow-up'></i>

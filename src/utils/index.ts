@@ -20,3 +20,11 @@ export const toastNotify = (msg: string, type?: 'error') => {
 export const getRandomInt = (max: number) => {
   return Math.floor(Math.random() * Math.floor(max));
 };
+
+export enum GAEventCategories {
+  BUTTON_CLICK = 'BUTTON CLICK',
+  MENU_NAVIGATION = 'MENU NAVIGATION',
+  READ_PAPER_ABSTRACT = 'READ PAPER ABSTRACT',
+  LINK_CLICK = 'LINK CLICK',
+  COLLAPSE_EXPERIENCE= 'COLLAPSE EXPERIENCE'
+}

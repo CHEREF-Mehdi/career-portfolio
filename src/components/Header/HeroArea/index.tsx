@@ -1,7 +1,8 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
 import { IAppState } from '../../../store/ducks/rootReducer';
-import { getRandomInt } from '../../../utils';
+import { GAEventCategories, getRandomInt } from '../../../utils';
+import ReactGa from 'react-ga';
 
 export const HeroArea: React.FC = () => {
   const getAbout = useSelector((state: IAppState) => state.careerData.about);
@@ -12,6 +13,11 @@ export const HeroArea: React.FC = () => {
   });
 
   const onGetQuoteClick = () => {
+    ReactGa.event({
+      category: GAEventCategories.BUTTON_CLICK,
+      action: 'Get Quotes',
+    });
+
     let r = getRandomInt(getAbout.quotes.length);
     while (r === quote.i) {
       r = getRandomInt(getAbout.quotes.length);
@@ -19,6 +25,13 @@ export const HeroArea: React.FC = () => {
     quote.change
       ? setQuote({ i: r, change: !quote.change })
       : setQuote({ i: quote.i, change: !quote.change });
+  };
+
+  const onClickSocialMedia = (socialMedia:string) => {
+    ReactGa.event({
+      category: GAEventCategories.BUTTON_CLICK,
+      action: 'GO to '+socialMedia.substring(12).toUpperCase(),
+    });
   };
 
   return (
@@ -46,7 +59,7 @@ export const HeroArea: React.FC = () => {
                 data-wow-delay='0.8s'
               >
                 {getAbout.socialMedia.map((item, key) => (
-                  <li key={key}>
+                  <li key={key} onClick={()=>onClickSocialMedia(item.icon)}>
                     <a
                       className={item.cssClass}
                       target='_blank'
