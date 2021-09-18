@@ -4,13 +4,17 @@ import { setSelectedScientificPapersAction } from '../../../store/ducks/resume';
 import ReactGa from 'react-ga';
 import { GAEventCategories } from '../../../utils';
 
+const styles: IClassNames = {
+  liChevron: { position: 'absolute', top: '0px', right: '5px' },
+} as const;
+
 const LinkTag: React.FC<{ link: string; title: string; description: string }> =
   ({ link, title, description }) => {
     const onClick = () => {
       ReactGa.event({
         category: GAEventCategories.LINK_CLICK,
         action: title,
-        label: description.substring(0,50),
+        label: description.substring(0, 50),
       });
     };
     return (
@@ -30,7 +34,12 @@ function mapLinkList(links: string[], title: string, description: string) {
   return (
     <>
       {links.map((link, key) => (
-        <LinkTag key={key} link={link} title={title} description={description}/>
+        <LinkTag
+          key={key}
+          link={link}
+          title={title}
+          description={description}
+        />
       ))}
     </>
   );
@@ -57,7 +66,8 @@ function mapContent(
             {value.tools && (
               <p className='line-text' style={{ fontWeight: 'bold' }}>
                 {value.tools}
-                {mapLinks === 'BOTTOM' && mapLinkList(value.links, title,value.describtion)}
+                {mapLinks === 'BOTTOM' &&
+                  mapLinkList(value.links, title, value.describtion)}
               </p>
             )}
           </div>
@@ -119,7 +129,7 @@ export const ResumeItem: React.FC<IResumeItem> = ({
         onClick={() => onExperienceExpend(id)}
       >
         {id || content[0]?.abstract ? (
-          <div style={{ position: 'absolute', top: '10px', right: '10px' }}>
+          <div style={styles.liChevron}>
             {id ? (
               <i
                 className={`fas fa-chevron-circle-${

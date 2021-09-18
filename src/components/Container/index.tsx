@@ -27,7 +27,6 @@ const loadingTexts: string[] = [
   "We're building the buildings as fast as we can.",
   "Don't worry - a few bits tried to escape, but we caught them.",
   'The server is powered by a lemon and two electrodes.',
-  'There is no spoon. Because we are not done loading it.',
   'Waiting Daenerys say all her titles...',
 ];
 
