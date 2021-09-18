@@ -1231,13 +1231,19 @@ a:not([href]):not([tabindex]):hover {
     transform: rotate(0deg);
   }
 
-  7% {
+  20% {
+    -moz-transform: rotate(0deg);
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+
+  27% {
     -moz-transform: rotate(90deg);
     -webkit-transform: rotate(90deg);
     transform: rotate(90deg);
   }
 
-  15% {
+  35% {
     -moz-transform: rotate(0deg);
     -webkit-transform: rotate(0deg);
     transform: rotate(0deg);
@@ -1257,14 +1263,20 @@ a:not([href]):not([tabindex]):hover {
     -webkit-transform: rotate(0deg);
     transform: rotate(0deg);
   }
+  
+  20% {
+    -moz-transform: rotate(0deg);
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
 
-  7% {
+  27% {
     -moz-transform: rotate(-90deg);
     -webkit-transform: rotate(-90deg);
     transform: rotate(-90deg);
   }
 
-  15% {
+  35% {
     -moz-transform: rotate(0deg);
     -webkit-transform: rotate(0deg);
     transform: rotate(0deg);
