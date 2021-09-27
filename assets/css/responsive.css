@@ -6,6 +6,11 @@
   .services-item .services-content h3 a {
     font-size: 14px;
   }
+  
+  .indigo {
+    padding: 0;
+    margin: 0;
+  }
 }
 
 /* only small tablets */
@@ -13,37 +18,19 @@
   #nav-main li a.nav-link {
     padding-top: 18px;
   }
-}
 
-/* tablets */
-@media screen and (max-width: 991px) {
   .navbar-header {
     width: 100%;
   }
+
   .navbar-brand {
     position: absolute;
     padding: 0px 15px;
     top: 0;
   }
   .navbar-brand img {
+    margin: 5px 0;
     width: 75%;
-  }
-  #mobile-menu {
-    display: none;
-  }
-  .slicknav_menu {
-    display: block;
-  }
-  .slicknav_nav .active a {
-    background: #e91e63;
-    color: #fff;
-  }
-  .slicknav_nav a:hover,
-  .slicknav_nav a:focus,
-  .slicknav_nav .active {
-    color: #00b4d9;
-    outline: none;
-    background: #000 !important;
   }
   .section-title {
     font-size: 30px;
@@ -57,6 +44,32 @@
   }
 }
 
+/* tablets */
+@media screen and (max-width: 991px) {
+  .navbar-header {
+    width: 100%;
+  }
+
+  .navbar-brand {
+    position: absolute;
+    padding: 0px 15px;
+    top: 0;
+  }
+  .navbar-brand img {
+    margin: 5px 0;
+    width: 75%;
+  }
+  .section-title {
+    font-size: 30px;
+    margin-bottom: 30px;
+  }
+  .services-item .services-content h3 a {
+    font-size: 14px;
+  }
+  .services-item {
+    margin-bottom: 20px;
+  }
+}
 
 /* only mobile */
 @media screen and (max-width: 767px) {
@@ -70,6 +83,7 @@
   .navbar-brand img {
     margin: 5px 0;
   }
+ 
   #hero-area .contents {
     padding: 100px 0px 60px 0px;
   }
@@ -93,5 +107,43 @@
   }
   .contact-form-area {
     padding: 40px 0px;
+  }
+}
+
+@media screen and (min-width: 801px) {
+  .item {
+    height: 85vh !important;
+    width: auto !important;
+  }
+  .item img {
+    height: 100% !important;
+    width: auto !important;
+  }
+}
+
+@media screen and (max-width: 800px) {
+  .item {
+    height: auto !important;
+    width: 85vw !important;
+  }
+  .item img {
+    max-height: auto !important;
+    max-width: 100% !important;
+  }
+}
+
+@media only screen and (max-width: 479px) {
+  .testimonial .description {
+    padding: 20px;
+    font-size: 14px;
+  }
+  .testimonial .testimonial-profile {
+    padding: 10px;
+  }
+  .testimonial .title {
+    font-size: 16px;
+  }
+  .testimonial .post {
+    font-size: 13px;
   }
 }
