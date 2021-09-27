@@ -1,9 +1,11 @@
 enum actions {
-  SET_LOANDING = 'portfolio/about/SET_LOANDING',
+  SET_LOANDING = 'portfolio/UI/SET_LOANDING',
+  SET_ERROR = 'portfolio/UI/SET_ERROR',
 }
 
 interface IControlUI {
   loading: boolean;
+  error?: string;
 }
 
 const controlUIInitialState: IControlUI = {
@@ -18,6 +20,8 @@ const reducer = (
   switch (action.type) {
     case actions.SET_LOANDING:
       return { ...state, loading: action.payload };
+    case actions.SET_ERROR:
+      return { ...state, loading: false, error: action.payload };
     default:
       return state;
   }
@@ -35,12 +39,20 @@ const actionMaker =
     };
   };
 
-export const setControlUItAction = actionMaker<actions.SET_LOANDING, boolean>(
+export const setUILoadingAction = actionMaker<actions.SET_LOANDING, boolean>(
   actions.SET_LOANDING
 );
 
-const actionsObj = {
-  setControlUItAction,
+export const setUIErrorAction = actionMaker<
+  actions.SET_ERROR,
+  string | undefined
+>(actions.SET_ERROR);
+
+export const controleUIActionsObj = {
+  setUILoadingAction,
+  setUIErrorAction,
 };
 
-export type IControlUIAction = NS_ReduxNS.IactionUnion<typeof actionsObj>;
+export type IControlUIAction = NS_ReduxNS.IactionUnion<
+  typeof controleUIActionsObj
+>;

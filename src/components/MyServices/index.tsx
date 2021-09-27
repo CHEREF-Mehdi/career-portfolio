@@ -13,7 +13,7 @@ export const MyServices: React.FC = () => {
       </h2>
       <div className='container'>
         <div className='row' id='servicesDiv'>
-          {services.items.map((item, key) => (
+          {services.map((item, key) => (
             <ServiceItem
               key={key}
               name={item.name}

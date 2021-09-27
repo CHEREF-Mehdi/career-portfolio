@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { IServiceItem } from '../../../store/ducks/initialStates';
+import { IServiceItem } from '../../../store/dataTypes';
 
 export const ServiceItem: React.FC<IServiceItem> = ({ name, detail, icon }) => {
   return (

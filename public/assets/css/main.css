@@ -88,6 +88,9 @@ ol li {
   letter-spacing: 0.1rem;
 }
 
+/* ==========================================================================
+Sections
+========================================================================== */
 .section-titile-bg {
   display: inline;
   font-size: 115px;
@@ -119,6 +122,13 @@ ol li {
   position: relative;
 }
 
+.section-padding {
+  padding: 60px 0;
+}
+
+/* ==========================================================================
+Buttons
+========================================================================== */
 .btn {
   font-size: 14px;
   padding: 10px 30px;
@@ -193,6 +203,14 @@ button:focus {
   outline: none !important;
 }
 
+button.close span {
+  color: #fff;
+  opacity: 0.8;
+}
+
+/* ==========================================================================
+Icons
+========================================================================== */
 .icon-close,
 .icon-check {
   color: #00b4d9;
@@ -279,15 +297,9 @@ a.back-to-top:focus {
   text-decoration: none;
 }
 
-.no-scroll-bare {
-  -ms-overflow-style: none; /* for Internet Explorer, Edge */
-  scrollbar-width: none; /* for Firefox */
-  overflow-y: scroll;
-}
-
-.no-scroll-bare::-webkit-scrollbar {
-  display: none; /* for Chrome, Safari, and Opera */
-}
+/* ==========================================================================
+Loader
+========================================================================== */
 
 .loader-message-box {
   position: fixed;
@@ -327,10 +339,9 @@ a.back-to-top:focus {
   max-width: 64px;
 }
 
-.section-padding {
-  padding: 60px 0;
-}
-
+/* ==========================================================================
+About
+========================================================================== */
 #about .img-thumb img {
   border: 8px solid #ddd;
   box-shadow: 0px 0px 30px rgba(255, 255, 255, 0.527);
@@ -377,7 +388,7 @@ a.back-to-top:focus {
   bottom: 10px;
 }
 
-.counter-section {
+/* .counter-section {
   background: '../img/background/bg-1.jpg';
   overflow: hidden;
   position: relative;
@@ -420,9 +431,11 @@ a.back-to-top:focus {
   font-size: 42px;
   margin-top: 15px;
   font-weight: 700;
-}
+} */
 
-/* Resume */
+/* ==========================================================================
+Resume
+========================================================================== */
 .timeline {
   position: relative;
 }
@@ -441,7 +454,7 @@ a.back-to-top:focus {
 
 .timeline li .content-text {
   background: rgba(153, 153, 153, 0.5);
-  padding: 20px;
+  padding: 0px;
   border-radius: 5px;
 }
 
@@ -502,18 +515,21 @@ a.back-to-top:focus {
   height: 50px;
   text-align: center;
 }
-
+.modal-content {
+  background-color: #000;
+}
+/* ==========================================================================
+Nav bar
+========================================================================== */
 .navbar-brand {
   position: relative;
-  padding: 0px;
+  padding: 5;
 }
 
 .top-nav-collapse {
   background: #000 !important;
-  z-index: 999999;
   top: 0px !important;
-  min-height: 58px;
-  box-shadow: 0px 3px 6px 3px rgba(75, 75, 75, 0.5);
+  box-shadow: 0px 3px 6px 3px rgba(165, 161, 161, 0.5);
   -webkit-animation-duration: 0.5s;
   animation-duration: 0.5s;
   -webkit-animation-fill-mode: both;
@@ -524,10 +540,6 @@ a.back-to-top:focus {
 
 .top-nav-collapse .navbar-brand {
   top: 0px;
-}
-
-.top-nav-collapse .navbar-brand img {
-  width: 65%;
 }
 
 .top-nav-collapse .navbar-nav .nav-link {
@@ -546,20 +558,14 @@ a.back-to-top:focus {
 }
 
 .indigo {
-  background: #000;
-}
-
-.menu-bg {
-  background: transparent;
+  background: #000 !important;
 }
 
 .navbar-expand-lg .navbar-nav .nav-link i {
   font-size: 28px;
   color: #00b4d9;
-  vertical-align: middle;
-  -webkit-transition: all 0.3s ease-in-out;
-  -moz-transition: all 0.3s ease-in-out;
-  transition: all 0.3s ease-in-out;
+  margin-top: 0px !important;
+  margin-bottom: 0px !important;
 }
 
 .navbar-expand-lg .navbar-nav .nav-link i:hover {
@@ -569,33 +575,22 @@ a.back-to-top:focus {
 .navbar-expand-lg .navbar-nav .nav-link {
   color: #ddd;
   font-weight: 700;
-  padding: 0 17px;
-  margin-top: 15px;
-  margin-bottom: 15px;
-  line-height: 40px;
   text-transform: uppercase;
   cursor: pointer;
-  background: transparent;
-  -webkit-transition: all 0.3s ease-in-out;
-  -moz-transition: all 0.3s ease-in-out;
-  transition: all 0.3s ease-in-out;
 }
 
-.navbar-expand-lg .navbar-nav li a:hover,
-.navbar-expand-lg .navbar-nav li .active > a,
-.navbar-expand-lg .navbar-nav li a:focus {
-  color: #00b4d9;
+.navbar-expand-lg .navbar-nav a:hover,
+.navbar-expand-lg .navbar-nav .active > a,
+.navbar-expand-lg .navbar-nav a:focus {
+  color: #ddd !important;
   outline: none;
 }
 
-.navbar {
-  padding: 0;
+.navbar a.nav-link.active {
+  color: #00b4d9 !important;
 }
 
-.navbar li.active a.nav-link {
-  color: #00b4d9;
-}
-
+/* 
 .dropdown-toggle::after {
   display: none;
 }
@@ -683,7 +678,7 @@ a.back-to-top:focus {
 .dropdown-item.active,
 .dropdown-item:active {
   background: transparent;
-}
+} 
 
 .fadeInUpMenu {
   -webkit-animation-name: fadeInUpMenu;
@@ -708,7 +703,7 @@ a.back-to-top:focus {
 
 .slicknav_menu {
   display: none;
-}
+}*/
 
 /* ==========================================================================
 3. Hero Area
@@ -716,6 +711,7 @@ a.back-to-top:focus {
 .hero-area-bg {
   background: url(../img/hero-area.jpg) no-repeat;
   background-size: cover;
+  background-position: 26% 75%;
 }
 
 #hero-area {
@@ -787,18 +783,6 @@ a.back-to-top:focus {
   background: #151515;
 }
 
-#portfolios .mix {
-  padding: 10px;
-}
-
-#portfolios .portfolio-item .shot-item {
-  margin: 0px;
-}
-
-#portfolio .mix {
-  display: none;
-}
-
 .controls {
   text-align: center;
   padding: 0px 0px 20px;
@@ -833,8 +817,19 @@ a.back-to-top:focus {
 .shot-item {
   margin-right: 15px;
   border-radius: 4px;
-  background: #fff;
   position: relative;
+  height: 220px;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+
+#portfolios .portfolio-item .shot-item {
+  margin: 0px;
+}
+
+#portfolios .mix {
+  padding: 10px;
 }
 
 .shot-item img {
@@ -1157,52 +1152,8 @@ a:not([href]):not([tabindex]):hover {
   color: #00b4d9;
 }
 
-.carousel-caption h5 {
-  color: #00b4d9;
-}
-
-.carousel-indicators li {
-  background-color: #888;
-}
-.carousel-indicators .active {
-  background-color: #00b4d9;
-}
-
 .Recommendation {
   background-color: #888;
-}
-.carousel-inner {
-  background-color: transparent !important;
-}
-
-@media screen and (min-width: 801px) {
-  .item {
-    height: 85vh !important;
-    width: auto !important;
-  }
-  .item img {
-    height: 100% !important;
-    width: auto !important;
-  }
-}
-
-@media screen and (max-width: 800px) {
-  .item {
-    height: auto !important;
-    width: 85vw !important;
-  }
-  .item img {
-    max-height: auto !important;
-    max-width: 100% !important;
-  }
-}
-
-.carousel-control-prev-icon {
-  background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='%2300B4D9' viewBox='0 0 8 8'%3E%3Cpath d='M5.25 0l-4 4 4 4 1.5-1.5-2.5-2.5 2.5-2.5-1.5-1.5z'/%3E%3C/svg%3E");
-}
-
-.carousel-control-next-icon {
-  background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='%2300B4D9' viewBox='0 0 8 8'%3E%3Cpath d='M2.75 0l-1.5 1.5 2.5 2.5-2.5 2.5 1.5 1.5 4-4-4-4z'/%3E%3C/svg%3E");
 }
 
 .abstract:hover {
@@ -1216,76 +1167,44 @@ a:not([href]):not([tabindex]):hover {
 /* ==========================================================================
   Portfolio icon rotation
    ========================================================================== */
-
-.rotateUp_this {
-  animation-name: rotateUp;
-  animation-duration: 3s;
+.shake_this {
+  transform: translate(0, 0);
+  animation-name: shakeY;
+  animation-duration: 5s;
   animation-iteration-count: infinite;
   animation-timing-function: linear;
 }
 
-@keyframes rotateUp {
-  0% {
-    -moz-transform: rotate(0deg);
-    -webkit-transform: rotate(0deg);
-    transform: rotate(0deg);
+@keyframes shakeY {
+  2%,
+  18% {
+    transform: translate(0, 0);
   }
 
-  20% {
-    -moz-transform: rotate(0deg);
-    -webkit-transform: rotate(0deg);
-    transform: rotate(0deg);
+  4%,
+  16% {
+    transform: translate(0, 5px);
   }
 
-  27% {
-    -moz-transform: rotate(90deg);
-    -webkit-transform: rotate(90deg);
-    transform: rotate(90deg);
+  6%,
+  10%,
+  14% {
+    transform: translate(0, 0px);
   }
 
-  35% {
-    -moz-transform: rotate(0deg);
-    -webkit-transform: rotate(0deg);
-    transform: rotate(0deg);
-  }
-}
-
-.rotateDown_this {
-  animation-name: rotateDown;
-  animation-duration: 3s;
-  animation-iteration-count: infinite;
-  animation-timing-function: linear;
-}
-
-@keyframes rotateDown {
-  0% {
-    -moz-transform: rotate(0deg);
-    -webkit-transform: rotate(0deg);
-    transform: rotate(0deg);
-  }
-  
-  20% {
-    -moz-transform: rotate(0deg);
-    -webkit-transform: rotate(0deg);
-    transform: rotate(0deg);
+  8%,
+  12% {
+    transform: translate(0, 5px);
   }
 
-  27% {
-    -moz-transform: rotate(-90deg);
-    -webkit-transform: rotate(-90deg);
-    transform: rotate(-90deg);
-  }
-
-  35% {
-    -moz-transform: rotate(0deg);
-    -webkit-transform: rotate(0deg);
-    transform: rotate(0deg);
+  18.1% {
+    transform: translate(0, 0px);
   }
 }
 
 /* ==========================================================================
   testimonials
-   ========================================================================== */
+========================================================================== */
 
 .testimonial {
   margin: 0 10px;
@@ -1380,32 +1299,4 @@ a:not([href]):not([tabindex]):hover {
   font-weight: normal;
   color: #888;
   margin-top: 10px;
-}
-.owl-theme .owl-controls {
-  margin-top: 30px;
-}
-.owl-theme .owl-controls .owl-page span {
-  background: transparent;
-  border: 1px solid #00b4d9;
-  opacity: 1;
-}
-.owl-theme .owl-controls .owl-page.active span {
-  background: #00b4d9;
-  border: 1px solid #00b4d9;
-}
-
-@media only screen and (max-width: 479px) {
-  .testimonial .description {
-    padding: 20px;
-    font-size: 14px;
-  }
-  .testimonial .testimonial-profile {
-    padding: 10px;
-  }
-  .testimonial .title {
-    font-size: 16px;
-  }
-  .testimonial .post {
-    font-size: 13px;
-  }
 }

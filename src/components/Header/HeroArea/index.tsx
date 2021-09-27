@@ -3,14 +3,22 @@ import { useSelector } from 'react-redux';
 import { IAppState } from '../../../store/ducks/rootReducer';
 import { GAEventCategories, getRandomInt } from '../../../utils';
 import ReactGa from 'react-ga';
+import { OverlayTrigger, Popover } from 'react-bootstrap';
+import { SocialMedia } from '../../SocialMedia';
+
+const styles: IClassNames = {
+  heroAreaContent: {
+    height: '100vh',
+    display: 'flex',
+    justifyContent: 'center',
+    flexDirection: 'column',
+  },
+} as const;
 
 export const HeroArea: React.FC = () => {
-  const getAbout = useSelector((state: IAppState) => state.careerData.about);
+  const about = useSelector((state: IAppState) => state.careerData.about);
 
-  const [quote, setQuote] = React.useState<{ i: number; change: boolean }>({
-    i: 0,
-    change: true,
-  });
+  const [quoteIndex, setQuoteIndex] = React.useState(0);
 
   const onGetQuoteClick = () => {
     ReactGa.event({
@@ -18,21 +26,18 @@ export const HeroArea: React.FC = () => {
       action: 'Get Quotes',
     });
 
-    let r = getRandomInt(getAbout.quotes.length);
-    while (r === quote.i) {
-      r = getRandomInt(getAbout.quotes.length);
+    let r = getRandomInt(about.quotes.length);
+    while (r === quoteIndex) {
+      r = getRandomInt(about.quotes.length);
     }
-    quote.change
-      ? setQuote({ i: r, change: !quote.change })
-      : setQuote({ i: quote.i, change: !quote.change });
+    setQuoteIndex(r);
   };
 
-  const onClickSocialMedia = (socialMedia:string) => {
-    ReactGa.event({
-      category: GAEventCategories.BUTTON_CLICK,
-      action: 'GO to '+socialMedia.substring(12).toUpperCase(),
-    });
-  };
+  const renderTooltip = (props: any) => (
+    <Popover id='popover-basic' {...props}>
+      <Popover.Content>{about.quotes[quoteIndex]}</Popover.Content>
+    </Popover>
+  );
 
   return (
     <div id='hero-area' className='hero-area-bg'>
@@ -40,7 +45,7 @@ export const HeroArea: React.FC = () => {
       <div className='container'>
         <div className='row'>
           <div className='col-md-12 col-sm-12 text-center'>
-            <div className='contents'>
+            <div className='contents' style={styles.heroAreaContent}>
               <h5 className='script-font wow fadeInUp' data-wow-delay='0.2s'>
                 Hi This is
               </h5>
@@ -52,36 +57,17 @@ export const HeroArea: React.FC = () => {
                 className='script-font wow fadeInUp'
                 data-wow-delay='0.6s'
               >
-                {getAbout.jobTitle}
+                {about.jobTitle}
               </p>
-              <ul
-                className='social-icon wow fadeInUp socialMediaDiv'
-                data-wow-delay='0.8s'
-              >
-                {getAbout.socialMedia.map((item, key) => (
-                  <li key={key} onClick={()=>onClickSocialMedia(item.icon)}>
-                    <a
-                      className={item.cssClass}
-                      target='_blank'
-                      rel='noopener noreferrer'
-                      href={item.link}
-                    >
-                      <i className={item.icon}></i>
-                    </a>
-                  </li>
-                ))}
-              </ul>
+
+              <SocialMedia items={about.socialMedia} />
+
               <div className='header-button wow fadeInUp' data-wow-delay='1s'>
-                <button
-                  className='btn btn-common'
-                  data-placement='bottom'
-                  data-toggle='popover'
-                  tabIndex={0}
-                  data-content={getAbout.quotes[quote.i]}
-                  onClick={onGetQuoteClick}
-                >
-                  Favorite Quotes
-                </button>
+                <OverlayTrigger placement='bottom' overlay={renderTooltip}>
+                  <button className='btn btn-common' onClick={onGetQuoteClick}>
+                    Favorite Quotes
+                  </button>
+                </OverlayTrigger>
               </div>
             </div>
           </div>

@@ -1,11 +1,17 @@
 import * as React from 'react';
+import { IResumeList } from '../../../store/dataTypes';
 import { ResumeItem } from '../ResumeItem';
 
-export const ResumeList: React.FC<NS_ReduxNS.IResumeList> = ({
+interface IResumeListUI extends IResumeList {
+  setOpenModal?: React.Dispatch<React.SetStateAction<boolean>>;
+}
+
+export const ResumeList: React.FC<IResumeListUI> = ({
   icon,
   items,
   title,
   mapLinks,
+  setOpenModal,
 }) => {
   return (
     <div className='education wow fadeInRight' data-wow-delay='0.3s'>
@@ -16,11 +22,12 @@ export const ResumeList: React.FC<NS_ReduxNS.IResumeList> = ({
         </li>
         {items.map((element, key) => (
           <ResumeItem
+            setOpenModal={setOpenModal}
             key={key}
             index={key}
             item={element}
             mapLinks={mapLinks}
-            show={title==="experience" && key===0}
+            show={title === 'experience' && key === 0}
           />
         ))}
       </ul>

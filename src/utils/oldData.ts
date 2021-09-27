@@ -2,11 +2,13 @@
 
 import {
   IAbout,
+  ICareerData,
   IContact,
   IPortfolio,
+  IResumeList,
   IService,
   ITestemonial,
-} from '../store/ducks/initialStates';
+} from '../store/dataTypes';
 
 const aboutOldState: IAbout = {
   imgUrl: '/assets/img/about/about-1.jpg',
@@ -75,32 +77,30 @@ const contactOldState: IContact = {
   malt: 'https://www.malt.fr/profile/mehdicheref',
 };
 
-const servicesOldState: IService = {
-  items: [
-    {
-      name: 'Front End',
-      detail: 'React, React Native & Angular',
-      icon: 'fa fa-mobile',
-    },
-    {
-      name: 'Back End & Databases',
-      detail: 'NodeJS & Spring/ SQL & NoSQL',
-      icon: 'fa fa-server',
-    },
-    {
-      name: 'DevOps',
-      detail: 'Dev, Quality, IT Operations',
-      icon: 'fa fa-cogs',
-    },
-    {
-      name: 'Artificial Intelligence',
-      detail: 'Machine and Deep Learning',
-      icon: 'fa fa-object-group',
-    },
-  ],
-};
+const servicesOldState: IService = [
+  {
+    name: 'Front End',
+    detail: 'React, React Native & Angular',
+    icon: 'fa fa-mobile',
+  },
+  {
+    name: 'Back End & Databases',
+    detail: 'NodeJS & Spring/ SQL & NoSQL',
+    icon: 'fa fa-server',
+  },
+  {
+    name: 'DevOps',
+    detail: 'Dev, Quality, IT Operations',
+    icon: 'fa fa-cogs',
+  },
+  {
+    name: 'Artificial Intelligence',
+    detail: 'Machine and Deep Learning',
+    icon: 'fa fa-object-group',
+  },
+];
 
-const proExperienceOldState: NS_ReduxNS.IResumeList = {
+const proExperienceOldState: IResumeList = {
   title: 'experience',
   icon: 'icon-briefcase',
   mapLinks: 'BOTTOM',
@@ -108,7 +108,7 @@ const proExperienceOldState: NS_ReduxNS.IResumeList = {
     {
       title: 'Software Engineer',
       year: 'Capgemini : Jul. 2021 - Today',
-      id: 6,
+      key: 6,
       content: [
         {
           describtion: ``,
@@ -120,7 +120,7 @@ const proExperienceOldState: NS_ReduxNS.IResumeList = {
     {
       title: 'Full stack developer - Node/React',
       year: "Shift'In : Sep. 2020 - Jun. 2021 <strong>(10 mos)</strong>",
-      id: 5,
+      key: 5,
       content: [
         {
           describtion: `Appointment scheduling application, Back end : web-services/ RESTFul APIs connected to a front end application : authentication, authorization Firebase.`,
@@ -132,7 +132,7 @@ const proExperienceOldState: NS_ReduxNS.IResumeList = {
     {
       title: 'Front end developer & AI engineer - React/ TensorFlowJS',
       year: 'Scorf : Mar. - Sept. 2020 <strong>(6 mos)</strong>',
-      id: 4,
+      key: 4,
       content: [
         {
           describtion: `Developing a BI platform (tables management) and implementing IA models to extract relevant information from financial resources. (P&L, Cash-Flow...)`,
@@ -142,7 +142,7 @@ const proExperienceOldState: NS_ReduxNS.IResumeList = {
       ],
     },
     {
-      id: 3,
+      key: 3,
       title: 'Computer Vision engineer - Cuda/C++',
       year: 'Laboratory LE2I University of Burgundy : Oct. 2019 - Mar. 2020  <strong>(6 mos)</strong>',
       content: [
@@ -166,7 +166,7 @@ const proExperienceOldState: NS_ReduxNS.IResumeList = {
       ],
     },
     {
-      id: 2,
+      key: 2,
       title: 'Full stack developer- Node/React Native',
       year: 'LG : Sept. 2017 - Aug. 2019  <strong>(2 yrs)</strong>',
       content: [
@@ -178,7 +178,7 @@ const proExperienceOldState: NS_ReduxNS.IResumeList = {
       ],
     },
     {
-      id: 1,
+      key: 1,
       title: 'Full stack developer - Node/React',
       year: 'NTTC (New Technical Trading & Contracting) : Feb.2015 - Aug.2016  <strong>(1 yr 7 mos)</strong>',
       content: [
@@ -192,7 +192,7 @@ const proExperienceOldState: NS_ReduxNS.IResumeList = {
   ],
 };
 
-const personalProjectOldState: NS_ReduxNS.IResumeList = {
+const personalProjectOldState: IResumeList = {
   icon: 'icon-briefcase',
   title: 'personal projects',
   mapLinks: 'BOTTOM',
@@ -274,7 +274,7 @@ const personalProjectOldState: NS_ReduxNS.IResumeList = {
   ],
 };
 
-const educationOldState: NS_ReduxNS.IResumeList = {
+const educationOldState: IResumeList = {
   title: 'education',
   icon: 'icon-graduation',
   items: [
@@ -316,7 +316,7 @@ const educationOldState: NS_ReduxNS.IResumeList = {
   ],
 };
 
-const scientificPapersOldState: NS_ReduxNS.IResumeList = {
+const scientificPapersOldState: IResumeList = {
   title: 'Scientific Papers',
   icon: 'icon-badge',
   mapLinks: 'TOP',
@@ -327,7 +327,7 @@ const scientificPapersOldState: NS_ReduxNS.IResumeList = {
       year: 'Image and Vision Computing Journal-Elsevier : Apr. 2020',
       content: [
         {
-          id: 'ppr3',
+          key: 'ppr3',
           describtion: 'Zero–sum Game model for segmenting skin regions.',
           tools: null,
           links: ['https://doi.org/10.1016/j.imavis.2020.103925'],
@@ -349,7 +349,7 @@ const scientificPapersOldState: NS_ReduxNS.IResumeList = {
       year: 'Speaker in VISAPP, Valetta, Malta : Feb. 2020',
       content: [
         {
-          id: 'ppr2',
+          key: 'ppr2',
           describtion: 'Melanoma Detection System based on Game Theory Model.',
           tools: null,
           links: [
@@ -375,7 +375,7 @@ const scientificPapersOldState: NS_ReduxNS.IResumeList = {
       year: 'Multimedia Tools and Applications Journal-Springer : Jul. 2019',
       content: [
         {
-          id: 'ppr1',
+          key: 'ppr1',
           describtion:
             'Effiecient Representation of size function based on Moments Theory.',
           tools: null,
@@ -400,13 +400,13 @@ const scientificPapersOldState: NS_ReduxNS.IResumeList = {
   ],
 };
 
-const organizationOldState: NS_ReduxNS.IResumeList = {
+const organizationOldState: IResumeList = {
   title: 'organization',
   icon: 'icon-people',
   mapLinks: 'TOP',
   items: [
     {
-      id: 'org3',
+      key: 'org3',
       title: 'INSTICC Regular member',
       year: 'Institute for Systems and Technologies of Information, Control and Communication: Feb. 2020 - Dec 2021',
       content: [
@@ -421,7 +421,7 @@ const organizationOldState: NS_ReduxNS.IResumeList = {
       ],
     },
     {
-      id: 'org2',
+      key: 'org2',
       title: 'WEB development instructor',
       year: 'Microclub - USTHB : Feb. 2017',
       content: [
@@ -438,62 +438,59 @@ const organizationOldState: NS_ReduxNS.IResumeList = {
   ],
 };
 
-const portfolioOldState: IPortfolio = {
-  items: [
-    {
-      img: '/assets/img/gallery/img-1.jpg',
-      link: 'https://www.google.fr/maps/place/Valletta,+Malta/@35.8989085,14.5145528,3a,75y,90t/data=!3m8!1e2!3m6!1sAF1QipOgaci7Qxa9EX2zj0vrgoh9bjSvzMx5z8kXUvw-!2e10!3e12!6shttps:%2F%2Flh5.googleusercontent.com%2Fp%2FAF1QipOgaci7Qxa9EX2zj0vrgoh9bjSvzMx5z8kXUvw-%3Dw129-h86-k-no!7i2997!8i1998!4m5!3m4!1s0x130e45281d8647c5:0x745ad38ee242c917!8m2!3d35.8989085!4d14.5145528',
-      filter: 'development',
-    },
-    {
-      img: '/assets/img/gallery/img-2.jpg',
-      link: 'https://microclub-usthb.com/agc/',
-      filter: 'print',
-    },
-    {
-      img: '/assets/img/gallery/img-3.jpg',
-      link: 'https://www.google.fr/maps/place/Timimoun,+Algeria/@29.2609217,0.2385387,3a,75y,90t/data=!3m8!1e2!3m6!1sAF1QipMJCU-fM6iZ8kVFsjnIzGgHutG4H_XvfzVvoVut!2e10!3e12!6shttps:%2F%2Flh5.googleusercontent.com%2Fp%2FAF1QipMJCU-fM6iZ8kVFsjnIzGgHutG4H_XvfzVvoVut%3Dw114-h86-k-no!7i720!8i540!4m5!3m4!1s0x127572225e84a77f:0x29b4250c99b3463e!8m2!3d29.2616911!4d0.2415964',
-      filter: 'development',
-    },
-    {
-      img: '/assets/img/gallery/img-4.jpg',
-      link: 'https://www.facebook.com/AlgerianGameDevelopers/',
-      filter: 'design',
-    },
-    {
-      img: '/assets/img/gallery/img-5.jpg',
-      link: 'https://www.scorf.io/',
-      filter: 'design',
-    },
-    {
-      img: '/assets/img/gallery/img-6.jpg',
-      link: 'https://www.google.com/maps/place/Sousse,+Tunisia/@35.8284534,10.5480137,12z/data=!3m1!4b1!4m13!1m7!3m6!1s0x125595448316a4e1:0x3a84333aaa019bef!2sTunisia!3b1!8m2!3d33.886917!4d9.537499!3m4!1s0x130275759ac9d10d:0x698e3915682cef7d!8m2!3d35.8267213!4d10.6347656',
-      filter: 'development',
-    },
-  ],
-};
+const portfolioOldState: IPortfolio = [
+  {
+    img: '/assets/img/gallery/img-1.jpg',
+    link: 'https://www.google.fr/maps/place/Valletta,+Malta/@35.8989085,14.5145528,3a,75y,90t/data=!3m8!1e2!3m6!1sAF1QipOgaci7Qxa9EX2zj0vrgoh9bjSvzMx5z8kXUvw-!2e10!3e12!6shttps:%2F%2Flh5.googleusercontent.com%2Fp%2FAF1QipOgaci7Qxa9EX2zj0vrgoh9bjSvzMx5z8kXUvw-%3Dw129-h86-k-no!7i2997!8i1998!4m5!3m4!1s0x130e45281d8647c5:0x745ad38ee242c917!8m2!3d35.8989085!4d14.5145528',
+    filter: 'travel',
+  },
+  {
+    img: '/assets/img/gallery/img-2.jpg',
+    link: 'https://microclub-usthb.com/agc/',
+    filter: 'event',
+  },
+  {
+    img: '/assets/img/gallery/img-3.jpg',
+    link: 'https://www.google.fr/maps/place/Timimoun,+Algeria/@29.2609217,0.2385387,3a,75y,90t/data=!3m8!1e2!3m6!1sAF1QipMJCU-fM6iZ8kVFsjnIzGgHutG4H_XvfzVvoVut!2e10!3e12!6shttps:%2F%2Flh5.googleusercontent.com%2Fp%2FAF1QipMJCU-fM6iZ8kVFsjnIzGgHutG4H_XvfzVvoVut%3Dw114-h86-k-no!7i720!8i540!4m5!3m4!1s0x127572225e84a77f:0x29b4250c99b3463e!8m2!3d29.2616911!4d0.2415964',
+    filter: 'travel',
+  },
+  {
+    img: '/assets/img/gallery/img-4.jpg',
+    link: 'https://www.facebook.com/AlgerianGameDevelopers/',
+    filter: 'work',
+  },
+  {
+    img: '/assets/img/gallery/img-5.jpg',
+    link: 'https://www.scorf.io/',
+    filter: 'work',
+  },
+  {
+    img: '/assets/img/gallery/img-6.jpg',
+    link: 'https://www.google.com/maps/place/Sousse,+Tunisia/@35.8284534,10.5480137,12z/data=!3m1!4b1!4m13!1m7!3m6!1s0x125595448316a4e1:0x3a84333aaa019bef!2sTunisia!3b1!8m2!3d33.886917!4d9.537499!3m4!1s0x130275759ac9d10d:0x698e3915682cef7d!8m2!3d35.8267213!4d10.6347656',
+    filter: 'travel',
+  },
+];
 
-const testimonialOldState: ITestemonial = {
-  items: [
-    {
-      name: 'Pierre-Alexandre Beucher',
-      title: 'Co-founder at Scorf',
-      img: '/assets/img/rec/PA.jfif',
-      url: 'https://www.linkedin.com/in/pierre-alexandre-beucher-0338951/',
-      testimonial: `Nos 6 mois de collaborations furent excellent. Très
+const testimonialOldState: ITestemonial = [
+  {
+    name: 'Pierre-Alexandre Beucher',
+    title: 'Co-founder at Scorf',
+    img: '/assets/img/rec/PA.jfif',
+    url: 'https://www.linkedin.com/in/pierre-alexandre-beucher-0338951/',
+    testimonial: `Nos 6 mois de collaborations furent excellent. Très
                     professionnel, rigoureux et méthodique, toujours prêt à
                     aider, à faire avancer les projets en proposant des
                     solutions. Mehdi a su mener à bien l'ensemble des
                     missions qui lui ont été confiées avec la plus grande
                     autonomie dans un contexte sanitaire parfois compliqué.
                     Vivement recommandé`,
-    },
-    {
-      name: 'Youcef ZAHARIOU',
-      title: 'Software Engineer',
-      img: '/assets/img/rec/YZ.jfif',
-      url: 'https://www.linkedin.com/in/youcef-zahariou/',
-      testimonial: `Mehdi était une personne brillante avec qui j'ai
+  },
+  {
+    name: 'Youcef ZAHARIOU',
+    title: 'Software Engineer',
+    img: '/assets/img/rec/YZ.jfif',
+    url: 'https://www.linkedin.com/in/youcef-zahariou/',
+    testimonial: `Mehdi était une personne brillante avec qui j'ai
                     travaillé. Il est très cartésien dans tout ce qu'il fait
                     et on peut compter sur lui pour faire le travail
                     efficacement. Grâce à ses compétences interpersonnelles
@@ -504,11 +501,10 @@ const testimonialOldState: ITestemonial = {
                     travail exigeait des connaissances et un dévouement
                     approfondis. Il est un atout pour toute entreprise, je
                     recommande vivement de travailler avec lui`,
-    },
-  ],
-};
+  },
+];
 
-export const oldDataGlobalState = {
+export const oldCareerData: ICareerData = {
   about: aboutOldState,
   contact: contactOldState,
   services: servicesOldState,

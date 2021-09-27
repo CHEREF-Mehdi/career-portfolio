@@ -1,6 +1,12 @@
 import * as React from 'react';
+import { useSelector } from 'react-redux';
+import { IAppState } from '../../store/ducks/rootReducer';
+import { SocialMedia } from '../SocialMedia';
 
 export const Footer: React.FC = () => {
+  const socialMedia = useSelector(
+    (state: IAppState) => state.careerData.about.socialMedia
+  );
   return (
     <>
       <footer className='footer-area section-padding'>
@@ -11,11 +17,11 @@ export const Footer: React.FC = () => {
                 className='footer-text text-center wow fadeInDown'
                 data-wow-delay='0.3s'
               >
-                <ul className='social-icon socialMediaDiv'></ul>
+                <SocialMedia items={socialMedia} />
                 <p id='Copyright'>
                   {'Copyright © ' +
                     new Date().getFullYear() +
-                    ' UIdeck All Right Reserved'}
+                    ' Mehdi CHEREF All Right Reserved'}
                 </p>
               </div>
             </div>

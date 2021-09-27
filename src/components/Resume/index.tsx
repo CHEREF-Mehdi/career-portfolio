@@ -1,6 +1,7 @@
 import * as React from 'react';
 import { useSelector } from 'react-redux';
 import { IAppState } from '../../store/ducks/rootReducer';
+import { ModalCustom } from '../Modal';
 import { ResumeList } from './ResumeList';
 
 export const Resume: React.FC = () => {
@@ -11,6 +12,9 @@ export const Resume: React.FC = () => {
     scientificPapers,
     organizations,
   } = useSelector((state: IAppState) => state.careerData.resume);
+
+  const [openModal, setOpenModal] = React.useState(false);
+  
   return (
     // <!-- Resume Section Start -->
     <div id='resume' className='section-padding'>
@@ -22,6 +26,7 @@ export const Resume: React.FC = () => {
               title={proExperience.title}
               items={proExperience.items}
               mapLinks={proExperience.mapLinks}
+              setOpenModal={setOpenModal}
             />
             <ResumeList
               icon={personalProject.icon}
@@ -36,6 +41,7 @@ export const Resume: React.FC = () => {
               title={scientificPapers.title}
               items={scientificPapers.items}
               mapLinks={scientificPapers.mapLinks}
+              setOpenModal={setOpenModal}
             />
             <ResumeList
               icon={education.icon}
@@ -52,6 +58,7 @@ export const Resume: React.FC = () => {
           </div>
         </div>
       </div>
+      <ModalCustom openModal={openModal} setOpenModal={setOpenModal}/>
     </div>
   );
   // <!-- Resume Section End -->)

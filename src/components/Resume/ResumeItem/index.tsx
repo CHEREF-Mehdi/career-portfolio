@@ -1,8 +1,10 @@
 import * as React from 'react';
 import store from '../../../store';
-import { setSelectedScientificPapersAction } from '../../../store/ducks/resume';
 import ReactGa from 'react-ga';
 import { GAEventCategories } from '../../../utils';
+import { IContent, IResumeItem } from '../../../store/dataTypes';
+import { setSelectedScientificPapersAction } from '../../../store/ducks/careerReducer';
+import { Accordion, Card } from 'react-bootstrap';
 
 const styles: IClassNames = {
   liChevron: { position: 'absolute', top: '0px', right: '5px' },
@@ -46,7 +48,7 @@ function mapLinkList(links: string[], title: string, description: string) {
 }
 
 function mapContent(
-  content: NS_ReduxNS.IContent[],
+  content: IContent[],
   mapLinks: 'TOP' | 'BOTTOM' | undefined,
   title: string
 ) {
@@ -54,10 +56,7 @@ function mapContent(
     <>
       {content.map((value, key) => {
         return (
-          <div
-            key={key}
-            id={value.abstract ? '#accordion' + value.id : undefined}
-          >
+          <div key={key}>
             <p className='line-text'>
               {value.describtion}
               {mapLinks === 'TOP' &&
@@ -77,20 +76,22 @@ function mapContent(
   );
 }
 
-interface IResumeItem {
-  item: NS_ReduxNS.IResumeItem;
+interface IResumeItemUI {
+  item: IResumeItem;
   mapLinks?: 'TOP' | 'BOTTOM';
   index: number;
   show?: boolean;
+  setOpenModal?: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
-export const ResumeItem: React.FC<IResumeItem> = ({
+export const ResumeItem: React.FC<IResumeItemUI> = ({
   item,
   mapLinks,
   index,
   show = false,
+  setOpenModal,
 }) => {
-  const { title, year, content, id } = item;
+  const { title, year, content, key } = item;
 
   const [collapse, setCollapse] = React.useState(show);
 
@@ -100,12 +101,13 @@ export const ResumeItem: React.FC<IResumeItem> = ({
       category: GAEventCategories.READ_PAPER_ABSTRACT,
       action: content[0].describtion,
     });
+    setOpenModal && setOpenModal(true);
   };
 
-  const onExperienceExpend = (id: string | number | undefined) => {
-    if (typeof id !== 'undefined') setCollapse(!collapse);
+  const onExperienceExpend = () => {
+    if (typeof key !== 'undefined') setCollapse(!collapse);
 
-    if (typeof id === 'number') {
+    if (typeof key === 'number') {
       let experience = year as string;
       const i = experience.indexOf('<');
       experience = i === -1 ? experience : experience.substring(0, i);
@@ -119,55 +121,64 @@ export const ResumeItem: React.FC<IResumeItem> = ({
 
   return (
     <li>
-      <div
-        className='content-text div-rotate'
-        style={{ position: 'relative', cursor: id ? 'pointer' : '' }}
-        data-toggle='collapse'
-        data-target={`#collapse${id}`}
-        aria-expanded='true'
-        aria-controls={`#collapse${id}`}
-        onClick={() => onExperienceExpend(id)}
-      >
-        {id || content[0]?.abstract ? (
-          <div style={styles.liChevron}>
-            {id ? (
-              <i
-                className={`fas fa-chevron-circle-${
-                  collapse ? 'down rotateUp_this' : 'left rotateDown_this'
-                }`}
-              />
-            ) : (
-              <p
-                className='abstract'
-                data-toggle='modal'
-                data-target='#Modal'
-                onClick={() => onReadAbstractClick(index)}
-              >
-                <small>
-                  <u>Read abstract</u>
-                </small>
-              </p>
-            )}
-          </div>
-        ) : (
-          ''
-        )}
-        <h3 className='line-title'>{title}</h3>
-        {year && <span dangerouslySetInnerHTML={{ __html: year }}></span>}
-        {id ? (
-          <div id={`#accordion${id}`}>
-            <div
-              id={`collapse${id}`}
-              className={`collapse ${show && 'show'}`}
-              data-parent={`#accordion${id}`}
-            >
-              {mapContent(content, mapLinks, title)}
+      <Accordion defaultActiveKey={show ? key + '' : undefined}>
+        <Card
+          className='content-text'
+          style={{ position: 'relative', cursor: key ? 'pointer' : '' }}
+        >
+          <Accordion.Toggle
+            as={Card.Body}
+            eventKey={key + ''}
+            onClick={onExperienceExpend}
+          >
+            <div>
+              {key || content[0]?.abstract ? (
+                <div style={styles.liChevron}>
+                  {key ? (
+                    <i
+                      className={`fas fa-chevron-circle-${
+                        collapse ? 'down' : 'left'
+                      } shake_this`}
+                    />
+                  ) : (
+                    <p
+                      className='abstract'
+                      data-toggle='modal'
+                      data-target='#Modal'
+                      onClick={() => onReadAbstractClick(index)}
+                    >
+                      <small>
+                        <u>Read abstract</u>
+                      </small>
+                    </p>
+                  )}
+                </div>
+              ) : (
+                ''
+              )}
+              <h3 className='line-title'>{title}</h3>
+              {year && <span dangerouslySetInnerHTML={{ __html: year }}></span>}
+              {key ? (
+                <Accordion.Collapse eventKey={key + ''}>
+                  <div>{mapContent(content, mapLinks, title)}</div>
+                </Accordion.Collapse>
+              ) : (
+                mapContent(content, mapLinks, title)
+              )}
             </div>
-          </div>
-        ) : (
-          mapContent(content, mapLinks, title)
-        )}
-      </div>
+          </Accordion.Toggle>
+        </Card>
+      </Accordion>
+      {/* <div
+        className='content-text div-rotate'
+        data-toggle='collapse'
+        data-target={`#collapse${key}`}
+        aria-expanded='true'
+        aria-controls={`collapse${key}`}
+        onClick= {onExperienceExpend}
+      >
+        
+      </div> */}
     </li>
   );
 };

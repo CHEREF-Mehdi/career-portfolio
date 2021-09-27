@@ -1,6 +1,7 @@
 import React from 'react';
 import ReactGa from 'react-ga';
 import { GAEventCategories } from '../../../utils';
+import { Navbar, Container, Nav } from 'react-bootstrap';
 
 export const NavBar: React.FC = () => {
   const onNavigate = (goTo: string) => {
@@ -11,86 +12,67 @@ export const NavBar: React.FC = () => {
   };
 
   return (
-    <nav className='navbar navbar-expand-lg fixed-top scrolling-navbar indigo'>
-      <div className='container'>
-        <div className='navbar-header'>
-          <a href='#hero-area' className='navbar-brand'>
-            <img
-              src={process.env.PUBLIC_URL + '/assets/img/logo.png'}
-              alt='CHEREF Mehdi'
-            />
-          </a>
+    <Navbar
+      collapseOnSelect
+      fixed='top'
+      expand='lg'
+      bg='dark'
+      variant='dark'
+      className='indigo'
+    >
+      <Container>
+        <Navbar.Brand href='#hero-area'>
+          <img
+            src={process.env.PUBLIC_URL + '/assets/img/logo.png'}
+            alt='CHEREF Mehdi'
+          />
+        </Navbar.Brand>
+        <div
+          style={{
+            flex: 1,
+            display: 'flex',
+            justifyContent: 'end',
+          }}
+        >
+          <Navbar.Toggle aria-controls='responsive-navbar-nav' />
         </div>
 
-        <div className='collapse navbar-collapse' id='main-navbar'>
-          <ul className='onepage-nev navbar-nav mr-auto w-100 justify-content-end clearfix'>
-            <li className='nav-item active' onClick={() => onNavigate('Home')}>
-              <a className='nav-link' href='#hero-area'>
-                Home
-              </a>
-            </li>
-            <li className='nav-item' onClick={() => onNavigate('About')}>
-              <a className='nav-link' href='#about'>
-                About
-              </a>
-            </li>
-            <li className='nav-item' onClick={() => onNavigate('Services')}>
-              <a className='nav-link' href='#services'>
-                Services
-              </a>
-            </li>
-            <li className='nav-item' onClick={() => onNavigate('Resume')}>
-              <a className='nav-link' href='#resume'>
-                Resume
-              </a>
-            </li>
-            <li
-              className='nav-item'
+        <Navbar.Collapse id='responsive-navbar-nav'>
+          <Nav
+            defaultActiveKey='#hero-area'
+            className='justify-content-end'
+            style={{ width: '100%' }}
+          >
+            <Nav.Link href='#hero-area' onClick={() => onNavigate('Home')}>
+              Home
+            </Nav.Link>
+            <Nav.Link href='#about' onClick={() => onNavigate('About')}>
+              About
+            </Nav.Link>
+            <Nav.Link href='#services' onClick={() => onNavigate('Services')}>
+              Services
+            </Nav.Link>
+            <Nav.Link href='#resume' onClick={() => onNavigate('Resume')}>
+              Resume
+            </Nav.Link>
+            <Nav.Link
+              href='#portfolios'
               onClick={() => onNavigate('About my journey')}
             >
-              <a className='nav-link' href='#portfolios'>
-                About my journey
-              </a>
-            </li>
-            <li className='nav-item' onClick={() => onNavigate('Testimonials')}>
-              <a className='nav-link' href='#Recommendations'>
-                Testimonials
-              </a>
-            </li>
-            <li className='nav-item' onClick={() => onNavigate('Contact')}>
-              <a className='nav-link' href='#contact'>
-                Contact
-              </a>
-            </li>
-          </ul>
-        </div>
-      </div>
-
-      {/* <!-- Mobile Menu Start --> */}
-      <ul className='onepage-nev mobile-menu'>
-        <li onClick={() => onNavigate('Home')}>
-          <a href='#hero-area'>Home</a>
-        </li>
-        <li onClick={() => onNavigate('About')}>
-          <a href='#about'>About</a>
-        </li>
-        <li onClick={() => onNavigate('Services')}>
-          <a href='#services'>Services</a>
-        </li>
-        <li onClick={() => onNavigate('Resume')}>
-          <a href='#resume'>Resume</a>
-        </li>
-        <li onClick={() => onNavigate('About my journey')}>
-          <a href='#portfolio'>About my journey</a>
-        </li>
-        <li onClick={() => onNavigate('Testimonials')}>
-          <a href='#Recommendations'>Testimonials</a>
-        </li>
-        <li onClick={() => onNavigate('Contact')}>
-          <a href='#contact'>Contact</a>
-        </li>
-      </ul>
-      {/* <!-- Mobile Menu End --> */}
-    </nav>
+              About my journey
+            </Nav.Link>
+            <Nav.Link
+              href='#Recommendations'
+              onClick={() => onNavigate('Testimonials')}
+            >
+              Testimonials
+            </Nav.Link>
+            <Nav.Link href='#contact' onClick={() => onNavigate('Contact')}>
+              Contact
+            </Nav.Link>
+          </Nav>
+        </Navbar.Collapse>
+      </Container>
+    </Navbar>
   );
 };
