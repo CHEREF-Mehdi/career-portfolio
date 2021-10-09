@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { IServiceItem } from '../../../store/dataTypes';
+import { IServiceItem } from '../../../store/utils/dataTypes';
 
 export const ServiceItem: React.FC<IServiceItem> = ({ name, detail, icon }) => {
   return (

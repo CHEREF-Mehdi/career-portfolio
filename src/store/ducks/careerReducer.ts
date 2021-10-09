@@ -1,5 +1,17 @@
-import { toastNotify, API, careerDataInitialState, oldCareerData } from '../../utils';
-import { ICareerData } from '../dataTypes';
+import store from '..';
+import {
+  toastNotify,
+  API_CALLS,
+  careerDataInitialState,
+  oldCareerData,
+} from '../../utils';
+import { reduxActionMaker } from '../utils/actionMaker';
+import { ICareerData } from '../utils/dataTypes';
+import {
+  setUIErrorAction,
+  setUILoadingAction,
+  setUIPortfolioDataRetreived,
+} from './controlUI';
 
 enum actions {
   SET_CAREER_DATA = 'portfolio/DATA/SET_PORTFOLIO_DATA',
@@ -31,22 +43,14 @@ export const careerReducer = (
   }
 };
 
-//action creator
-const actionMaker =
-  <T extends actions, G>(type: T) =>
-  (payload: G) => {
-    return {
-      type,
-      payload,
-    };
-  };
-
-export const setPortfolioAction = actionMaker<
+const setPortfolioAction = reduxActionMaker<
+  actions,
   actions.SET_CAREER_DATA,
   ICareerData
 >(actions.SET_CAREER_DATA);
 
-export const setSelectedScientificPapersAction = actionMaker<
+export const setSelectedScientificPapersAction = reduxActionMaker<
+  actions,
   actions.SET_SELECTED_SCIENTIFIC_PAPERS,
   number
 >(actions.SET_SELECTED_SCIENTIFIC_PAPERS);
@@ -62,23 +66,23 @@ export type IDispatchCareerAction = (
   Dispatch: React.Dispatch<ICareerAction>
 ) => any;
 
-export const getCareerData = (onSuccess: () => void) => {
+export const getCareerData = () => {
+  
+  store.dispatch(setUILoadingAction(true));
   return (Dispatch: React.Dispatch<ICareerAction>) => {
-    API.getPortfolioData
-      .then((result) => {
+    API_CALLS.getPortfolioData()
+      .then((result) => {        
         if (result.status === 200) {
           Dispatch(setPortfolioAction(result.data));
+          store.dispatch(setUIPortfolioDataRetreived(true));
         }
       })
       .catch((error) => {
-        Dispatch(setPortfolioAction(oldCareerData));
-        if (error.message === 'Network Error') {
-          console.error(error);
-          toastNotify('Network Error! Please check your internet connection', 'error');
-        }
-
+        Dispatch(setPortfolioAction(oldCareerData));       
+        store.dispatch(setUIPortfolioDataRetreived(false));
+        store.dispatch(setUIErrorAction(error.message));
         toastNotify('Server down! Data may not be up-to-date!.');
       })
-      .finally(() => onSuccess());
+      .finally(() => store.dispatch(setUILoadingAction(false)));
   };
 };

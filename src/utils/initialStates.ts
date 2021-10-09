@@ -9,7 +9,7 @@ import {
   IResumeList,
   IService,
   ITestemonial,
-} from '../store/dataTypes';
+} from '../store/utils/dataTypes';
 
 export const aboutInitialState: IAbout = {
   imgUrl: '',

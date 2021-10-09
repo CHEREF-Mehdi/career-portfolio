@@ -32,6 +32,7 @@ export const ModalCustom: React.FC<IModalCustom> = ({
       aria-labelledby='contained-modal-title-vcenter'
       centered
       show={openModal}
+      className="CustomModal"
       style={styles.modalContainer}
       onHide={() => setOpenModal(false)}
     >

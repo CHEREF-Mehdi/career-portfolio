@@ -1,4 +1,10 @@
 declare namespace NS_ReduxNS {
+  export type actionMaker = <Y, T extends Y, G>(
+    type: T
+  ) => (payload: G) => {
+    type: T;
+    payload: G;
+  };
 
   interface IstringMap<T> {
     [key: string]: T;
@@ -9,11 +15,5 @@ declare namespace NS_ReduxNS {
   type IactionUnion<A extends IstringMap<IanyFct>> = ReturnType<A[keyof A]>;
 }
 
-declare namespace NS_UI {
-  interface IModalContent {
-    title?: string;
-    year?: string;
-    abstract?: string;
-    link?: string;
-  }
-}
+
+

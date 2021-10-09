@@ -8,7 +8,7 @@ import {
   IResumeList,
   IService,
   ITestemonial,
-} from '../store/dataTypes';
+} from '../store/utils/dataTypes';
 
 const aboutOldState: IAbout = {
   imgUrl: '/assets/img/about/about-1.jpg',

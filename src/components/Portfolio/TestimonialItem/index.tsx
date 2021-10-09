@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { ITestimonialprofile } from '../../../store/dataTypes';
+import { ITestimonialprofile } from '../../../store/utils/dataTypes';
 
 const styles: IClassNames = {
   img: { maxWidth: '100%', maxHeight: '100%' },

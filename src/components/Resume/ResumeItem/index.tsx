@@ -2,7 +2,7 @@ import * as React from 'react';
 import store from '../../../store';
 import ReactGa from 'react-ga';
 import { GAEventCategories } from '../../../utils';
-import { IContent, IResumeItem } from '../../../store/dataTypes';
+import { IContent, IResumeItem } from '../../../store/utils/dataTypes';
 import { setSelectedScientificPapersAction } from '../../../store/ducks/careerReducer';
 import { Accordion, Card } from 'react-bootstrap';
 

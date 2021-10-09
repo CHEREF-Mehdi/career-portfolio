@@ -5,10 +5,11 @@ import { Provider } from 'react-redux';
 import store from './store';
 import { ToastContainer } from 'react-toastify';
 import Container from './components/Container';
-import { wow } from './utils';
+import { PageNotFound } from './components/PageNotFound';
+import { ROUTES, wow } from './utils';
 
 import 'react-toastify/dist/ReactToastify.css';
-import "react-responsive-carousel/lib/styles/carousel.min.css";
+import 'react-responsive-carousel/lib/styles/carousel.min.css';
 
 const App: React.FC = () => {
   const gaTrackingId: string = process.env.REACT_APP_GA_TRAKING_ID || '';
@@ -18,7 +19,7 @@ const App: React.FC = () => {
   }, [gaTrackingId]);
 
   React.useEffect(() => {
-    wow.sync();    
+    wow.sync();
   });
 
   return (
@@ -26,7 +27,8 @@ const App: React.FC = () => {
       <ToastContainer />
       <Router>
         <Switch>
-          <Route exact path='/career-portfolio' component={Container} />
+          <Route exact path={ROUTES.portfolio} component={Container} />
+          <Route path='*' component={PageNotFound} />
         </Switch>
       </Router>
     </Provider>

@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { IPortfolioItem } from '../../../store/dataTypes';
+import { IPortfolioItem } from '../../../store/utils/dataTypes';
 import { wow } from '../../../utils';
 
 interface IPortfolioItemUI extends IPortfolioItem {
@@ -20,7 +20,6 @@ export const PortfolioItem: React.FC<IPortfolioItemUI> = ({
   return (
     <div
       className={`col-sm-6 col-md-4 col-lg-4 col-xl-4 mix wow zoomIn`}
-      // data-wow-delay='0.4s'
       key={globalFilter}
     >
       <div className='portfolio-item'>
@@ -29,8 +28,7 @@ export const PortfolioItem: React.FC<IPortfolioItemUI> = ({
           style={{
             backgroundImage: `url(${process.env.PUBLIC_URL + img})`,
           }}
-        >
-          {/* <img src={process.env.PUBLIC_URL + img} alt='CHEREF Mehdi' /> */}
+        >          
           <div className='overlay'>
             <div className='icons'>
               <a

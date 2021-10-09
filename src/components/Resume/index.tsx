@@ -14,9 +14,8 @@ export const Resume: React.FC = () => {
   } = useSelector((state: IAppState) => state.careerData.resume);
 
   const [openModal, setOpenModal] = React.useState(false);
-  
+
   return (
-    // <!-- Resume Section Start -->
     <div id='resume' className='section-padding'>
       <div className='container'>
         <div id='resumeDiv' className='row'>
@@ -27,12 +26,14 @@ export const Resume: React.FC = () => {
               items={proExperience.items}
               mapLinks={proExperience.mapLinks}
               setOpenModal={setOpenModal}
+              animation={'fadeInLeft'}
             />
             <ResumeList
               icon={personalProject.icon}
               title={personalProject.title}
               items={personalProject.items}
               mapLinks={personalProject.mapLinks}
+              animation={'fadeInLeft'}
             />
           </div>
           <div className='col-lg-6 col-md-6 col-sm-6'>
@@ -42,24 +43,26 @@ export const Resume: React.FC = () => {
               items={scientificPapers.items}
               mapLinks={scientificPapers.mapLinks}
               setOpenModal={setOpenModal}
+              animation={'fadeInRight'}
             />
             <ResumeList
               icon={education.icon}
               title={education.title}
               items={education.items}
               mapLinks={education.mapLinks}
+              animation={'fadeInRight'}
             />
             <ResumeList
               icon={organizations.icon}
               title={organizations.title}
               items={organizations.items}
               mapLinks={organizations.mapLinks}
+              animation={'fadeInRight'}
             />
           </div>
         </div>
       </div>
-      <ModalCustom openModal={openModal} setOpenModal={setOpenModal}/>
+      <ModalCustom openModal={openModal} setOpenModal={setOpenModal} />
     </div>
   );
-  // <!-- Resume Section End -->)
 };

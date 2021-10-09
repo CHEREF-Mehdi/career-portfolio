@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { ISocialMedia } from '../../store/dataTypes';
+import { ISocialMedia } from '../../store/utils/dataTypes';
 import ReactGa from 'react-ga';
 import { GAEventCategories } from '../../utils';
 

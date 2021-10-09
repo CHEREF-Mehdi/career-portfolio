@@ -86,7 +86,7 @@ export const Portfolio: React.FC = () => {
           </div>
           <div
             id='portfolio'
-            className='col-md-12 row'
+            className='container col-md-12 row'
             style={styles.portfolioContainer}
           >
             {filteredImage.map(({ img, filter, link }, key) => {
@@ -105,7 +105,7 @@ export const Portfolio: React.FC = () => {
       </div>
       <br />
       <br />
-      <div id='Recommendations' className='container'>
+      <div id='Recommendations' className='container wow fadeInUp'>
         <h2 className='section-title'>Testimonials</h2>
 
         <div className='container'>

@@ -92,12 +92,12 @@ export const AboutMe: React.FC = () => {
                     </span>
                   </li>
 
-                  <li>
+                  {/* <li>
                     <span className='pro-title'> Phone </span>
                     <span className='pro-detail'>
                       <a href={contact.call}>{contact.tel}</a>
                     </span>
-                  </li>
+                  </li> */}
 
                   <li>
                     <span className='pro-title'> Freelance </span>
@@ -111,14 +111,6 @@ export const AboutMe: React.FC = () => {
                       </a>
                     </span>
                   </li>
-
-                  {/* <!--li>
-                    <span className="pro-title"> Name </span>
-                    <span className="pro-detail">${about.name}</span>
-                  </li--> */}
-                  {/* <!--li><span className="pro-title"> Experience </span> <span className="pro-detail">4 Years</span></!--li-->                  
-                  <!--li><span className="pro-title"> Freelance </span> <span className="pro-detail">Available</span>
-                  </!--li-->             */}
                 </ul>
               </div>
             </div>
