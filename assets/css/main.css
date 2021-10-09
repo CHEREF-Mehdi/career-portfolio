@@ -203,7 +203,7 @@ button:focus {
   outline: none !important;
 }
 
-button.close span {
+.CustomModal button.close span {
   color: #fff;
   opacity: 0.8;
 }
@@ -958,7 +958,6 @@ a:not([href]):not([tabindex]):hover {
 
 .form-control {
   width: 100%;
-  margin-bottom: 20px;
   font-size: 14px;
   border-radius: 0;
   -webkit-transition: all 0.3s;
@@ -966,11 +965,28 @@ a:not([href]):not([tabindex]):hover {
   transition: all 0.3s;
   padding: 8px 10px;
   border: 1px solid #e1e1e1;
+  background-color: #333;
+  color: #ddd;
+}
+
+.form-group{
+  margin-bottom: 20px;
 }
 
 .form-control:focus {
   box-shadow: none;
   outline: none;
+  background-color: #333;
+  color: #ddd;
+}
+
+.form-control::placeholder {
+  color: #aaa;
+}
+
+.text-danger{
+  color: orangered !important;
+  font-size: smaller !important;
 }
 
 .btn.disabled,
@@ -1299,4 +1315,9 @@ a:not([href]):not([tabindex]):hover {
   font-weight: normal;
   color: #888;
   margin-top: 10px;
+}
+
+.notFoundImg {
+  width: 100%;
+  max-width: 100%;
 }
