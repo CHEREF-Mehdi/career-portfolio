@@ -70,8 +70,6 @@ export const NavBar: React.FC = () => {
   React.useEffect(() => {
     //if event is not already emmited
     if (!sectionsEvent[activeSection]) {
-      console.log(activeSection + 'sent event');
-
       ReactGa.event({
         category: GAEventCategories.SCROLL_TO,
         action: activeSection,
