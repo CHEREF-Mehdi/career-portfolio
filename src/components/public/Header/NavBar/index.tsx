@@ -57,13 +57,31 @@ const SECTIONS = (): Array<Isection> => {
 
 export const NavBar: React.FC = () => {
   const [activeSection, setActiveSection] = React.useState('hero-area');
+  const [sectionsEvent, setSectionsEvent] = React.useState<any>({
+    'hero-area': false,
+    about: false,
+    services: false,
+    resume: false,
+    portfolios: false,
+    Recommendations: false,
+    contact: false,
+  });
 
   React.useEffect(() => {
-    ReactGa.event({
-      category: GAEventCategories.SCROLL_TO,
-      action: activeSection,
-    });
-  }, [activeSection]);
+    //if event is not already emmited
+    if (!sectionsEvent[activeSection]) {
+      console.log(activeSection + 'sent event');
+
+      ReactGa.event({
+        category: GAEventCategories.SCROLL_TO,
+        action: activeSection,
+      });
+    }
+
+    sectionsEvent[activeSection] = true;
+    setSectionsEvent({ ...sectionsEvent });
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [activeSection]); 
 
   let activeMenu = 'hero-area';
   window.addEventListener('scroll', (event) => {
