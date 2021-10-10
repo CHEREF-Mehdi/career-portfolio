@@ -4,7 +4,7 @@ import ReactGa from 'react-ga';
 import { Provider } from 'react-redux';
 import store from './store';
 import { ToastContainer } from 'react-toastify';
-import Container from './components/Container';
+import Container from './components/public/Container';
 import { PageNotFound } from './components/PageNotFound';
 import { ROUTES, wow } from './utils';
 
