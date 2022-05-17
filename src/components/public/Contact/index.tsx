@@ -1,6 +1,4 @@
 import * as React from 'react';
-import { useSelector } from 'react-redux';
-import { IAppState } from '../../../store/ducks/rootReducer';
 import { Formik, FormikHelpers, Form, Field, FormikErrors } from 'formik';
 import { IContactFormData, contactFormSchema, API_CALLS } from '../../../utils';
 import { Alert, Button, Spinner } from 'react-bootstrap';
@@ -14,7 +12,6 @@ const styles: IClassNames = {
 } as const;
 
 export const Contact: React.FC = () => {
-  const contact = useSelector((state: IAppState) => state.careerData.contact);
   const [showAlert, setShowAlert] = React.useState({
     show: false,
     type: '',
@@ -223,6 +220,7 @@ export const Contact: React.FC = () => {
                       process.env.PUBLIC_URL +
                       '/assets/img/certifications/safe.png'
                     }
+                    alt='Click to view my achievement'
                   >
                   </img>
                 </a>                
