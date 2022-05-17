@@ -211,29 +211,21 @@ export const Contact: React.FC = () => {
               className='col-md-6 col-lg-6 col-sm-12'
               style={styles.contactContainer}
             >
-              <div className='col-md-12 col-lg-12 col-sm-12 footer-right-area wow fadeIn'>
-                <h2 style={styles.contactHeader}>Contact Address</h2>
-                <div className='footer-right-contact'>
-                  <div className='single-contact'>
-                    <div className='contact-icon'>
-                      <i className='fa fa-map-marker'></i>
-                    </div>
-                    <p>{contact.adress}</p>
-                  </div>
-                  <div className='single-contact'>
-                    <div className='contact-icon'>
-                      <i className='fa fa-envelope'></i>
-                    </div>
-
-                    <span className='pro-detail'>
-                      <a href={`mailto:${contact.email1}`}>{contact.email1}</a>
-                    </span>
-                    <br />
-                    <span className='pro-detail'>
-                      <a href={`mailto:${contact.email2}`}>{contact.email2}</a>
-                    </span>
-                  </div>
-                </div>
+              <div className='col-md-12 col-lg-12 col-sm-12 footer-right-area wow fadeIn d-flex justify-content-center'>
+                <a 
+                  target='_blank'
+                  rel='noopener noreferrer' 
+                  href="https://www.credly.com/badges/a6848dc6-386a-44fd-963a-7fd441f2c240"
+                  style={{width: '60%'}}>
+                  <img
+                    style={{ objectFit:'contain', width: '100%'}}
+                    src={
+                      process.env.PUBLIC_URL +
+                      '/assets/img/certifications/safe.png'
+                    }
+                  >
+                  </img>
+                </a>                
               </div>
             </div>
           </div>

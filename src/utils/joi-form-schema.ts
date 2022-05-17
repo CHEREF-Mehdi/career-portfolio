@@ -21,10 +21,10 @@ const errorValidation = (errors: ErrorReport[]): ValidationErrorItem => {
       message = `The ${error.context.key} should be of type "text"`;
       break;
     case 'any.empty':
-      message = `Your ${error.context.key} can't be empty`;
+      message = `Please fill a valide ${error.context.key} field`;
       break;
     case 'any.required':
-      message = `Your ${error.context.key} is Required`;
+      message = `Please fill a valide ${error.context.key} field`;
       break;
     case 'string.min':
       message = `Should have at least ${error.context.limit} characters!`;
@@ -33,7 +33,7 @@ const errorValidation = (errors: ErrorReport[]): ValidationErrorItem => {
       message = `Should have at most ${error.context.limit} characters!`;
       break;
     case 'string.email':
-      message = `Please enter a valid email address`;
+      message = `Please fill a valid email address`;
       break;
     default:
       break;
