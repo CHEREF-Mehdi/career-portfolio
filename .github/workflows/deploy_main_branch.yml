@@ -9,8 +9,9 @@ jobs:
   build_deploy:
     runs-on: ubuntu-latest
     env:
-      REACT_APP_API_URL: https://mcheref-portfolio-api.herokuapp.com/api/
+      REACT_APP_API_URL: https://data.mongodb-api.com/app/data-donit/endpoint
       REACT_APP_GA_TRAKING_ID: ${{secrets.GA_TRAKING_ID}}
+      REACT_APP_API_KEY : ${{secrets.MONGO_KEY_API}}
 
     strategy:
       matrix:
