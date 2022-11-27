@@ -25,7 +25,7 @@ const API_BASE_URL = process.env.REACT_APP_API_URL;
 const API_KEY = process.env.REACT_APP_API_KEY;
 
 export const getPortfolioData = () =>
-  axiosApiInstance.get<ICareerData>(API_BASE_URL + 'portfolio', {
+  axiosApiInstance.get<ICareerData>(API_BASE_URL + '/portfolio', {
     headers: { 'api-key': API_KEY },
   });
 
