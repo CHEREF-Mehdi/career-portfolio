@@ -85,7 +85,10 @@ export const Contact: React.FC = () => {
             className='row contact-form-area wow fadeInUp'
             data-wow-delay='0.4s'
           >
-            <div id='contactDiv' className='col-md-6 col-lg-6 col-sm-12'>
+            <div className='col-md-12 col-lg-12 col-sm-12'>
+              <h2>Certifications</h2>
+            </div>
+            {/* <div id='contactDiv' className='col-md-6 col-lg-6 col-sm-12'>
               <div className='contact-block'>
                 <h2>Contact Form</h2>
 
@@ -203,27 +206,41 @@ export const Contact: React.FC = () => {
                   }}
                 </Formik>
               </div>
+            </div> */}
+
+            <div
+              className='col-md-6 col-lg-6 col-sm-12'
+              style={styles.contactContainer}
+            >
+              <iframe 
+                src={
+                  process.env.PUBLIC_URL + '/assets/img/certifications/aws.pdf#toolbar=0'
+                }
+                width='100%'
+                height='100%'
+              />
             </div>
+
             <div
               className='col-md-6 col-lg-6 col-sm-12'
               style={styles.contactContainer}
             >
               <div className='col-md-12 col-lg-12 col-sm-12 footer-right-area wow fadeIn d-flex justify-content-center'>
-                <a 
+                <a
                   target='_blank'
-                  rel='noopener noreferrer' 
-                  href="https://www.credly.com/badges/a6848dc6-386a-44fd-963a-7fd441f2c240"
-                  style={{width: '60%'}}>
+                  rel='noopener noreferrer'
+                  href='https://www.credly.com/badges/a6848dc6-386a-44fd-963a-7fd441f2c240'
+                  style={{ width: '60%' }}
+                >
                   <img
-                    style={{ objectFit:'contain', width: '100%'}}
+                    style={{ objectFit: 'contain', width: '100%' }}
                     src={
                       process.env.PUBLIC_URL +
                       '/assets/img/certifications/safe.png'
                     }
                     alt='Click to view my achievement'
-                  >
-                  </img>
-                </a>                
+                  ></img>
+                </a>
               </div>
             </div>
           </div>

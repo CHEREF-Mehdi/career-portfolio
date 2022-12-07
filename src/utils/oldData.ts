@@ -70,10 +70,8 @@ const aboutOldState: IAbout = {
 
 const contactOldState: IContact = {
   adress: 'Toulouse, France.',
-  email1: 'cheref-mehdi@hotmail.fr',
+  email1: 'mcheref.pro@gmail.com',
   email2: 'mehdi.cheref@capgemini.com',
-  tel: '+(33) 7 83 92 08 01',
-  call: 'tel:0033783920801',
   malt: 'https://www.malt.fr/profile/mehdicheref',
 };
 

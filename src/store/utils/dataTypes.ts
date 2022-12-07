@@ -22,8 +22,8 @@ export interface IContact {
   adress: string;
   email1: string;
   email2: string;
-  tel: string;
-  call: string;
+  tel?: string;
+  call?: string;
   malt: string;
 }
 
