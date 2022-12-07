@@ -179,7 +179,7 @@ export const NavBar: React.FC = () => {
               active={activeSection === 'contact'}
               onClick={() => onNavigate('Contact')}
             >
-              Contact
+              Certifications
             </Nav.Link>
           </Nav>
         </Navbar.Collapse>
