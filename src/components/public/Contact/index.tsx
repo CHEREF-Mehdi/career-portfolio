@@ -212,13 +212,23 @@ export const Contact: React.FC = () => {
               className='col-md-6 col-lg-6 col-sm-12'
               style={styles.contactContainer}
             >
-              <iframe 
-                src={
-                  process.env.PUBLIC_URL + '/assets/img/certifications/aws.pdf#toolbar=0'
-                }
-                width='100%'
-                height='100%'
-              />
+              <div className='col-md-12 col-lg-12 col-sm-12 footer-right-area wow fadeIn d-flex justify-content-center'>
+                <a
+                  target='_blank'
+                  rel='noopener noreferrer'
+                  href='https://www.credly.com/badges/9dc67f4d-3f8b-4cf2-9451-778c2cd01f8b/public_url'
+                  style={{ width: '60%' }}
+                >
+                  <img
+                    style={{ objectFit: 'contain', width: '100%' }}
+                    src={
+                      process.env.PUBLIC_URL +
+                      '/assets/img/certifications/aws.png'
+                    }
+                    alt='Click to view my achievement'
+                  ></img>
+                </a>
+              </div>
             </div>
 
             <div
