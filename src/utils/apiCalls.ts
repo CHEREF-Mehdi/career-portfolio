@@ -30,4 +30,4 @@ export const getPortfolioData = () =>
   });
 
 export const contactMe = (data: IContactFormData) =>
-  axiosApiInstance.post(API_BASE_URL + 'contact', data);
+  axiosApiInstance.post(API_BASE_URL + '/api/contact', data);
