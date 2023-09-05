@@ -1,79 +1,79 @@
 import * as React from 'react';
-import { Formik, FormikHelpers, Form, Field, FormikErrors } from 'formik';
-import { IContactFormData, contactFormSchema, API_CALLS } from '../../../utils';
-import { Alert, Button, Spinner } from 'react-bootstrap';
+// import { Formik, FormikHelpers, Form, Field, FormikErrors } from 'formik';
+// import { IContactFormData, contactFormSchema, API_CALLS } from '../../../utils';
+// import { Alert, Button, Spinner } from 'react-bootstrap';
 
-const styles: IClassNames = {
-  contactContainer: {
-    marginTop: "2em"
-  }
-} as const;
+// const styles: IClassNames = {
+//   contactContainer: {
+//     marginTop: "2em"
+//   }
+// } as const;
 
 export const Contact: React.FC = () => {
-  const [showAlert, setShowAlert] = React.useState({
-    show: false,
-    type: '',
-    message: '',
-    showSubmitBtn: true,
-  });
+  // const [showAlert, setShowAlert] = React.useState({
+  //   show: false,
+  //   type: '',
+  //   message: '',
+  //   showSubmitBtn: true,
+  // });
 
-  const contactInitialValue: IContactFormData = {
-    name: '',
-    email: '',
-    subject: '',
-    message: '',
-  };
+  // const contactInitialValue: IContactFormData = {
+  //   name: '',
+  //   email: '',
+  //   subject: '',
+  //   message: '',
+  // };
 
-  const validateContactForm = (values: IContactFormData) => {
-    let errors: FormikErrors<IContactFormData> = {};
-    const result = contactFormSchema.validate(values);
+  // const validateContactForm = (values: IContactFormData) => {
+  //   let errors: FormikErrors<IContactFormData> = {};
+  //   const result = contactFormSchema.validate(values);
 
-    result.error?.details.forEach((element) => {
-      if (element.context?.key === 'name') {
-        errors.name = element.message;
-      }
-      if (element.context?.key === 'email') {
-        errors.email = element.message;
-      }
-      if (element.context?.key === 'subject') {
-        errors.subject = element.message;
-      }
-      if (element.context?.key === 'message') {
-        errors.message = element.message;
-      }
-    });
+  //   result.error?.details.forEach((element) => {
+  //     if (element.context?.key === 'name') {
+  //       errors.name = element.message;
+  //     }
+  //     if (element.context?.key === 'email') {
+  //       errors.email = element.message;
+  //     }
+  //     if (element.context?.key === 'subject') {
+  //       errors.subject = element.message;
+  //     }
+  //     if (element.context?.key === 'message') {
+  //       errors.message = element.message;
+  //     }
+  //   });
 
-    return errors;
-  };
+  //   return errors;
+  // };
 
-  const onSubmitContactForm = (
-    values: IContactFormData,
-    actions: FormikHelpers<IContactFormData>
-  ) => {
-    actions.setSubmitting(true);
-    API_CALLS.contactMe(values)
-      .then((response) => {
-        if (response.status === 200) {
-          setShowAlert({
-            show: true,
-            type: 'success',
-            message: 'Your message has been sent successfully',
-            showSubmitBtn: false,
-          });
-        }
-      })
-      .catch((error) => {
-        if (error.response) {
-          setShowAlert({
-            show: true,
-            type: 'danger',
-            message: error.response.data.message,
-            showSubmitBtn: true,
-          });
-        }
-      })
-      .finally(() => actions.setSubmitting(false));
-  };
+  // const onSubmitContactForm = (
+  //   values: IContactFormData,
+  //   actions: FormikHelpers<IContactFormData>
+  // ) => {
+  //   actions.setSubmitting(true);
+  //   API_CALLS.contactMe(values)
+  //     .then((response) => {
+  //       if (response.status === 200) {
+  //         setShowAlert({
+  //           show: true,
+  //           type: 'success',
+  //           message: 'Your message has been sent successfully',
+  //           showSubmitBtn: false,
+  //         });
+  //       }
+  //     })
+  //     .catch((error) => {
+  //       if (error.response) {
+  //         setShowAlert({
+  //           show: true,
+  //           type: 'danger',
+  //           message: error.response.data.message,
+  //           showSubmitBtn: true,
+  //         });
+  //       }
+  //     })
+  //     .finally(() => actions.setSubmitting(false));
+  // };
 
   return (
       <section id='contact' className='section-padding'>
@@ -127,7 +127,7 @@ export const Contact: React.FC = () => {
               </div>
             </div>
             
-            <div
+            {/* <div
               style={styles.contactContainer}
               className='row contact-form-area wow fadeInUp'
               data-wow-delay='0.4s'
@@ -251,7 +251,7 @@ export const Contact: React.FC = () => {
                   </Formik>
                 </div>
               </div> 
-            </div>
+            </div> */}
           </div>
         </div>
       </section>

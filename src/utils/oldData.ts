@@ -105,7 +105,7 @@ const proExperienceOldState: IResumeList = {
   items: [
     {
       title: 'Software Engineer',
-      year: 'Capgemini : Jul. 2021 - Today',
+      year: 'Capgemini : Jul. 2021 - Present',
       key: 6,
       content: [
         {

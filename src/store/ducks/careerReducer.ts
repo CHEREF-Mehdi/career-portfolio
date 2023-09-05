@@ -71,11 +71,10 @@ export const getCareerData = () => {
   store.dispatch(setUILoadingAction(true));
   return (Dispatch: React.Dispatch<ICareerAction>) => {
     API_CALLS.getPortfolioData()
-      .then((result) => {        
-        if (result.status === 200) {
-          Dispatch(setPortfolioAction(result.data));
-          store.dispatch(setUIPortfolioDataRetreived(true));
-        }
+      .then((result) => {
+        Dispatch(setPortfolioAction(result));
+        store.dispatch(setUIPortfolioDataRetreived(true));
+        
       })
       .catch((error) => {
         Dispatch(setPortfolioAction(oldCareerData));       
