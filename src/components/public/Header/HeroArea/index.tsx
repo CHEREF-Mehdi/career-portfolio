@@ -47,10 +47,10 @@ export const HeroArea: React.FC = () => {
           <div className='col-md-12 col-sm-12 text-center'>
             <div className='contents' style={styles.heroAreaContent}>
               <h5 className='script-font wow fadeInUp' data-wow-delay='0.2s'>
-                Hi This is
+                Welcome to my portfolio
               </h5>
               <h2 className='head-title wow fadeInUp' data-wow-delay='0.4s'>
-                Mehdi CHEREF
+                I'm Mehdi CHEREF
               </h2>
               <p
                 id='jobTitle'

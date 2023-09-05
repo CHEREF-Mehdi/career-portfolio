@@ -109,8 +109,8 @@ const proExperienceOldState: IResumeList = {
       key: 6,
       content: [
         {
-          describtion: ``,
-          tools: 'Agile SAFe, JavaScript, Java & DevOps.',
+          describtion: `Airbus APS project: full-stack engineer Spring boot Java/Angular, build Web app to manage the development process, delivery, and technical support before and after aircraft sales.`,
+          tools: 'Agile SAFe, Angular, Spring Boot Java & DevOps.',
           links: [],
         },
       ],
@@ -165,12 +165,12 @@ const proExperienceOldState: IResumeList = {
     },
     {
       key: 2,
-      title: 'Full stack developer- Node/React Native',
+      title: 'Mobile Developer (React Native)',
       year: 'LG : Sept. 2017 - Aug. 2019  <strong>(2 yrs)</strong>',
       content: [
         {
-          describtion: `Back-end with Node ExpressJS: RESTFul API, Oauth, authentification, authorization. Front-end with React Native: Build cross-platform mobile application : Firebase, data-collection, QR/barecode reader & text recognition.`,
-          tools: 'Scrum, React native, Redux, TypeScript, Node, MySql & DevOps',
+          describtion: `Build cross-platform mobile application: Firebase, data-collection, QR/barcode reader, and text recognition.`,
+          tools: 'Scrum, React native, Redux, TypeScript, Firebase & Google API',
           links: [],
         },
       ],
@@ -178,11 +178,11 @@ const proExperienceOldState: IResumeList = {
     {
       key: 1,
       title: 'Full stack developer - Node/React',
-      year: 'NTTC (New Technical Trading & Contracting) : Feb.2015 - Aug.2016  <strong>(1 yr 7 mos)</strong>',
+      year: 'NTTC (New Technical Trading & Contracting) : 2016 - 2017  <strong>(1 yr)</strong>',
       content: [
         {
           describtion: `Project management WEB app. Developed from scratch starting with the needs analysis to the implementation of the KPI dashboard. `,
-          tools: 'ReactJS, Redux, Node, expressJS & MySQL',
+          tools: 'UML, PHP, expressJs, ReactJs, Redux & MySQL',
           links: [],
         },
       ],
@@ -453,8 +453,8 @@ const portfolioOldState: IPortfolio = [
     filter: 'travel',
   },
   {
-    img: '/assets/img/gallery/img-4.jpg',
-    link: 'https://www.facebook.com/AlgerianGameDevelopers/',
+    img: '/assets/img/gallery/img-4.jpeg',
+    link: '',
     filter: 'work',
   },
   {
