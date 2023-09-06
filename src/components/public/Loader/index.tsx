@@ -1,6 +1,7 @@
 import React from 'react';
 import { css } from '@emotion/react';
 import { PuffLoader } from 'react-spinners';
+import { getRandomInt } from '../../../utils';
 
 const styles: IClassNames = {
   loadercontainer: {
@@ -30,11 +31,9 @@ const Loader: React.FC = () => {
   const [loaderTextIndex, setLoadingTextIndex] = React.useState(0);
 
   React.useEffect(() => {
-    const timeout = setTimeout(() => {      
-      if(loaderTextIndex < loadingTexts.length - 1) {         
-        setLoadingTextIndex(prevIndex => prevIndex + 1);
-      }
-    }, 18000);
+    const timeout = setTimeout(() => {
+        setLoadingTextIndex(getRandomInt(loadingTexts.length));
+    }, 2000);
     return () => clearTimeout(timeout);
   }, [loaderTextIndex]);
 
