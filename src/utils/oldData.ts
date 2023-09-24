@@ -12,13 +12,14 @@ import {
 
 const aboutOldState: IAbout = {
   imgUrl: '/assets/img/about/about-1.jpg',
-  description: `My name is Mehdi CHEREF, I am a full-stack developer and IA engineer. I am an accomplished coder and programmer and I enjoy using my skills to
-        contribute to managing and sharing multidisciplinary ideas to bring projects to fruition. Graduated from the University of Burgundy, France in 2020 with a Master degree in Artificial intelligence. I have also attended the University of
-        Science and Technology H-B, Algeria where I received a Bachelor's and a Master's degree, the BSc in Software Development and the MSc in Visual Computing.
-        </br>
-        My favorite subject is programming, I spend my free time in reading or developing my tech-level by building my own software.
-        I enjoy eating the French Tacos <i>"Le gratiné"</i> and playing online video games. As part of my profession, I do my best to encourage my teammates
-        to work hard and push them to success.`,
+  description: `I am Mehdi CHEREF, a seasoned full-stack developer and artificial intelligence engineer. My expertise spans coding and programming, 
+        and I derive immense satisfaction from utilizing my skills to facilitate the management and dissemination of multidisciplinary concepts, 
+        ultimately culminating in project fruition. I earned a Master's degree in Artificial Intelligence from the University of Burgundy, 
+        France in 2020. Furthermore, I pursued my academic journey at the University of Science and Technology H-B, Algeria, where I obtained both a 
+        Bachelor's degree in Software Development and a Master's degree in Visual Computing. </br>
+        My passion lies in programming, and I dedicate my leisure time to enhancing my technical prowess through self-driven software development projects and extensive reading. 
+        Additionally, I derive enjoyment from indulging in French Tacos, particularly the <i>"Le gratiné"</i>, and engaging in online video gaming. 
+        In my professional capacity, I am committed to motivating and empowering my colleagues, fostering a culture of hard work, and steering them towards success.`,
   name: 'Mehdi CHEREF',
   age: '29 Years',
   book: 'Utopia XXI, Aymeric Caron',
@@ -109,7 +110,7 @@ const proExperienceOldState: IResumeList = {
       key: 6,
       content: [
         {
-          describtion: `Airbus APS project: full-stack engineer Spring boot Java/Angular, build Web app to manage the development process, delivery, and technical support before and after aircraft sales.`,
+          describtion: `Airbus PDM Service: full-stack engineer Spring boot Java/Angular, build Web app to manage the development process, delivery, and technical support before and after aircraft sales.`,
           tools: 'Agile SAFe, Angular, Spring Boot Java & DevOps.',
           links: [],
         },
@@ -290,7 +291,7 @@ const educationOldState: IResumeList = {
     },
     {
       title: 'Master of Science in Visual Computing',
-      year: ' USTHB, Algiers, Algeria : 2017',
+      year: ' USTHB, Algiers, Algeria : 2018',
       content: [
         {
           describtion:
@@ -302,7 +303,7 @@ const educationOldState: IResumeList = {
     },
     {
       title: 'Bachelor of Science in Software Engineering',
-      year: 'USTHB, Algiers, Algeria 2015',
+      year: 'USTHB, Algiers, Algeria 2016',
       content: [
         {
           describtion: 'Information Systems and Software Engineering. ',
